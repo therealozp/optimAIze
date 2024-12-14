@@ -1,0 +1,4 @@
+.venv/
+.vscode/
+__pycache__/
+baseline_taxonomies/heavy/

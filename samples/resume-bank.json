@@ -1,0 +1,217 @@
+{
+    "experience_bullets": [
+        {
+            "id": 1,
+            "position_name": "AI Researcher/Engineer Intern",
+            "company_name": "Kyanon Digital",
+            "start_date": "May 2024",
+            "end_date": "August 2024",
+            "responsibilities": [
+                "Improved customer profiling accuracy by 22% using advanced representation learning on customer transaction data.",
+                "Developed a proof-of-concept for solving cold-start problems and improving knowledge transfer, significantly boosting performance of baseline models such as XGBoost.",
+                "Delivered comprehensive proposal on state-of-the-art tabular learning, utilizing PyTorch, HuggingFace, and MLFlow, integrating reproducible workflows with Docker and Streamlit deployments."
+            ],
+            "keywords": [
+                "machine learning",
+                "representation learning",
+                "customer profiling",
+                "cold-start problem",
+                "XGBoost",
+                "PyTorch",
+                "HuggingFace",
+                "MLFlow",
+                "Docker",
+                "Streamlit",
+                "AI research",
+                "proof of concept",
+                "data science",
+                "software development"
+            ]
+        },
+        {
+            "id": 2,
+            "position_name": "Lab Assistant",
+            "company_name": "RANCS (Resilient, Autonomous, Networked Control Systems) Lab",
+            "start_date": "October 2023",
+            "end_date": "Present",
+            "responsibilities": [
+                "Collaborated on autonomous vehicle engineering, integrating radars, cameras, and Dataspeed controllers for sensor fusion.",
+                "Developed C++ SDK and UDP network socket libraries for Cohda MK6 devices, enabling custom data packet transmission.",
+                "Programmed firmware for GNSS devices, ensuring high-accuracy data for an FDOT autonomous bus project."
+            ],
+            "keywords": [
+                "firmware development",
+                "autonomous vehicles",
+                "sensor fusion",
+                "radars",
+                "cameras",
+                "Dataspeed controllers",
+                "GNSS",
+                "C++ SDK",
+                "UDP",
+                "data packet transmission",
+                "embedded systems",
+                "networked control systems"
+            ]
+        },
+        {
+            "id": 3,
+            "position_name": "Data Acquisition Lead",
+            "company_name": "Bulls Racing FSAE",
+            "start_date": "January 2024",
+            "end_date": "Present",
+            "responsibilities": [
+                "Secured a $1,000 sponsorship for LabJack data acquisition equipment, enhancing real-time wireless telemetry capabilities.",
+                "Maintained a robust sensor data logging framework and led MoTec training sessions to improve team decision-making.",
+                "Optimized C++ math library, boosting processing speed by 230% while ensuring code safety for high-performance computing."
+            ],
+            "keywords": [
+                "data acquisition",
+                "telemetry",
+                "LabJack",
+                "MoTec",
+                "sensor data logging",
+                "real-time systems",
+                "high-performance computing",
+                "C++",
+                "data logging",
+                "math libraries",
+                "engineering",
+                "embedded software"
+            ]
+        },
+        {
+            "id": 4,
+            "position_name": "Full-stack Developer",
+            "company_name": "Augmented Reality Integration Solutions (ARIS)",
+            "start_date": "June 2023",
+            "end_date": "Present",
+            "responsibilities": [
+                "Led a team to develop a 3D business integration solution using NextJS and Three.js, improving performance by 60% through local storage caching and batching server updates.",
+                "Built a scalable backend with MongoDB and DigitalOcean Spaces, integrating NextAuth and JWT for user authentication.",
+                "Completed MVP in 4 months, earning first-place funding at a tech conference of 1,000+ industry experts."
+            ],
+            "keywords": [
+                "web development",
+                "full-stack development",
+                "3D integration",
+                "NextJS",
+                "Three.js",
+                "MongoDB",
+                "DigitalOcean Spaces",
+                "NextAuth",
+                "JWT",
+                "business solutions",
+                "performance optimization",
+                "backend development"
+            ]
+        },
+        {
+            "id": 5,
+            "position_name": "Student Assistant",
+            "company_name": "Design for X Lab",
+            "location": "Tampa, FL, USA",
+            "start_date": "January 2024",
+            "end_date": "Present",
+            "responsibilities": [
+                "Trained over 30 students and faculty in the operation of CNC milling machines and 3D printers, enhancing lab safety and equipment proficiency.",
+                "Implementing a smart screen solution using JavaScript, Microsoft Graph, and Raspberry Pi scripting to dynamically display lab updates and highlights, saving the lab up to $3000.",
+                "Spearheading the development of an automated booking system for laser cutting machines and 3D printers, aimed at streamlining the reservation process."
+            ],
+            "keywords": [
+                "training",
+                "CNC milling machines",
+                "3D printing",
+                "lab safety",
+                "JavaScript",
+                "Microsoft Graph API",
+                "Raspberry Pi",
+                "smart screen solution",
+                "equipment utilization",
+                "automated booking system",
+                "hardware integration",
+                "IoT"
+            ]
+        },
+        {
+            "id": 6,
+            "position_name": "Teaching Assistant",
+            "company_name": "University of South Florida",
+            "location": "Tampa, FL, USA",
+            "start_date": "August 2023",
+            "end_date": "Present",
+            "responsibilities": [
+                "Facilitated hands-on learning for over 100 students in the Foundations of Engineering project support group by providing expertise in 3D printing, circuitry, Arduino programming, and robot assembly, resulting in a 25% increase in student project completion rates.",
+                "Developed an automated attendance checking tool and grouping algorithm through scripting, streamlining the parsing of student information and slashing team's administrative time by 90%.",
+                "Leading biweekly instructional sessions on Computer Organization for 200+ students, covering number system representations, RISC-V assembly programming, and memory management."
+            ],
+            "keywords": [
+                "teaching assistant",
+                "hands-on learning",
+                "3D printing",
+                "circuitry",
+                "Arduino programming",
+                "robot assembly",
+                "student project support",
+                "automated attendance",
+                "scripting",
+                "RISC-V",
+                "Computer Organization",
+                "memory management",
+                "education"
+            ]
+        }
+    ],
+    "project_bullets": [
+        {
+            "id": 1,
+            "project_name": "the last data structures visualizer you will ever need",
+            "start_date": "January 2024",
+            "end_date": "Present",
+            "responsibilities": [
+                "Created interactive visualizations for graphs, trees, and various data structures with react-force-graph and Vite.",
+                "Implemented animations for Dijkstra and A*, and improved rendering speeds by 120% via memoization and batch updates.",
+                "Integrated maze generation algorithms using depth-first techniques to further interactive learning experiences."
+            ],
+            "keywords": [
+                "data structures",
+                "graphs",
+                "trees",
+                "visualization",
+                "Vite",
+                "react-force-graph",
+                "Dijkstra",
+                "A*",
+                "animation",
+                "web development",
+                "educational tools",
+                "algorithm optimization"
+            ]
+        },
+        {
+            "id": 2,
+            "project_name": "LegAI",
+            "start_date": "October 2023",
+            "end_date": "Present",
+            "responsibilities": [
+                "Streamlined information retrieval by integrating PostgreSQL with ChromaDB, resulting in a 90% boost in processing speeds.",
+                "Built FastAPI backend infrastructure, and facilitated advanced text and image processing with Google Cloud Vision.",
+                "Optimized content analysis and information extraction using OpenAI's Ada-002 embedding model via LangChain."
+            ],
+            "keywords": [
+                "machine learning",
+                "information retrieval",
+                "PostgreSQL",
+                "ChromaDB",
+                "FastAPI",
+                "Google Cloud Vision",
+                "content analysis",
+                "OpenAI",
+                "Ada-002",
+                "LangChain",
+                "backend development",
+                "AI-driven solutions"
+            ]
+        }
+    ]
+}
