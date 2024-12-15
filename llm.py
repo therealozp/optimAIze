@@ -1,18 +1,59 @@
 from langchain_ollama import ChatOllama
-import os
 from langchain_core.prompts import ChatPromptTemplate
+from pydantic import BaseModel, Field
+
+
+class JobDescription(BaseModel):
+    company_name: str = Field(description="The name of the company.")
+    job_title: str = Field(description="The job title.")
+    location: str = Field(
+        description='The location of the job. Usually the name of a state, a city, or "Remote". '
+    )
+    company_description: str = Field(
+        description="A description of the company. This should contain all information on company such as name, history, work culture, projects, etc."
+    )
+    responsibilities_description: str = Field(
+        description="""Description of all possible responsibilities of the applicant.
+        
+         Look for phrases such as "you will," "your responsibilities," "expected tasks," "As an X, you will work on:" etc. In your response, include"
+        - **Technical Responsibilities**: Tasks related to engineering, development, or any technical skills required (e.g., programming, data analysis).
+        - **Impact**: What impact the applicant’s work will have (e.g., contributing to projects, improving processes, fine-tuning X, developing backend, scaling systems, etc.).
+        """
+    )
+
+
+class JobKeywordExtractor:
+    def __init__(self, job_description=None):
+        self.llm = ChatOllama(
+            model="llama3.2", num_ctx=10000, temperature=0
+        ).with_structured_output(JobDescription)
+
+        self.job_description = job_description
+
+    def extract_all_information(self):
+        base = """
+        You are an expert job information extractor assistant. Your task is to extract all the relevant details about the company, role responsibilities, technical requirements, and excitement from the job posting. Extract it exhaustively.
+
+        Given the below job posting, exhaustively extract all the relevant information.
+            """
+        message = base + "\n<Job Posting>\n" + self.job_description + "</Job Posting>"
+
+        response = self.llm.invoke(message)
+        return response
 
 
 class Agent:
     def __init__(self, job_description=None):
         self.llm = ChatOllama(model="llama3.2", num_ctx=10000)
-        self.base_prompt = """
-
-        """
         self.job_description = job_description
 
         self.bullet_samples = "samples/bullet-positive-samples.txt"
         self.action_verbs = "samples/action_verbs.txt"
+
+    def recommend_active_verbs(self):
+        prompt = """
+        You are an assistant specializing in finding which action verbs to use based on the job description. Recommend a list of roughly 30-50 action verbs relevant to the job description provided.
+    """
 
     def give_bullet_samples(self):
         with open(self.bullet_samples, "r") as f:
@@ -30,11 +71,14 @@ class Agent:
         2. Enumerate improvements you plan to make to the bullet point.
         3. Deliver the final rewritten bullet point
 
-        When a bullet point is written, ensure the following criteria:
-        - "Fluff" (unnecessary words or phrases), empty, vacuous statements, and vague language are minimized.
+        When a bullet point is rewritten, ensure the following criteria:
+        - No unnecessarily wordy statements.
+        - No statements that are generic and cliche.
+        - Everything should be clear. No vague and generic language.
+        - Quantify and qualify achievements wherever possible. 
+        - Use metrics, numbers, results to elaborate on impact.
         - The bullet point is authentic, engaging, and tailored to the provided job description.
-        - Quantify and qualify achievements wherever possible. Use metrics, numbers, results to elaborate on impact.
-        - Ensure readability: use action verbs, concise language, and bullet points for easy skimming.
+        - Ensure readability. Use action verbs and concise language.
         """
         history = [
             (

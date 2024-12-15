@@ -1,378 +1,377 @@
-
-  jquery
- ajax
- api testing
- aws lambda
- aws sagemaker
- adobe edge
- amazon s3
- amazon sqs
- amazon web services (aws)
- android sdk
- android studio
- android testing
- angular command line interface (cli)
- apollo graphql
- application virtualization
- applied machine learning
- artificial intelligence (ai)
- artificial neural networks
- authentication
- azure data lake
- azure devops server
- azure functions
- azure kubernetes service (aks)
- azure service bus
- azure virtual machines
- big data analytics
- biometrics
- blockchain
- bootstrap
- browserify
- bug tracking
- business intelligence tools
- c (programming language)
- cli
- css flexbox
- cvs
- cakephp
- certified information privacy professional
- chrome developer tools
- cisco networking
- clearcase
- cloud computing
- cloud computing iaas
- cloud firestore
- cloud foundry
- cloud management
- cloud migration
- cloud operations
- cloud security
- cloud storage
- cloud strategy
- code review
- codeigniter
- comptia
- comptia network+
- computer forensics
- computer networking
- computer science
- concurrent programming
- couchdb
- cryptocurrency
- cybersecurity incident response
- dns administration
- data assessment
- data center design
- data center infrastructure
- data center management
- data center operations
- data engineering
- data ethics
- data governance
- data ingestion
- data loading
- data migration
- data privacy
- data processing
- data reduction
- data reporting
- data security
- data sharing
- data solutions
- data stewardship
- data storage
- data validation
- data visualization
- data warehousing
- database development
- database maintenance
- database management system (dbms)
- database monitoring
- database testing
- databases
- decentralized applications (dapps)
- deep learning
- devsecops
- digital forensics
- digital mapping
- digitization
- directory services
- django
- e-commerce optimization
- esri
- economic data analysis
- elastic stack (elk)
- electronic payment processing
- encryption
- enterprise architecture planning
- enterprise content management
- enterprise data management
- enterprise design patterns
- enterprise javabeans (ejb)
- enterprise network security
- enterprise reporting solutions
- ethereum
- ethical hacking
- express.js
- federated identity management
- fetch
- flask
- flutter
- forecasting
- framemaker
- gis modeling
- gml
- game development
- game engines
- game mechanics
- game programming
- general data protection regulation (gdpr)
- gitlab
- go (programming language)
- google api
- google cloud automl
- google cloud platform (gcp)
- graphs
- grasshopper
- group policy
- hadoop
- hadoop administration
- hardware deployments
- hashcat
- help desk implementation
- help desk support
- histograms
- hybrid cloud
- hydra
- hyperledger
- ibm spss statistics
- ida
- it governance
- it hardware support
- it infrastructure design
- it service delivery
- it service management
- itil process implementation
- identity & access management (iam)
- indexeddb
- infosphere
- information security awareness
- information visualization
- infrastructure automation
- integrated development environments
- internet safety
- internet security
- intrusion detection
- ionic framework
- json
- jakarta ee
- java
- java concurrency
- java frameworks
- javascript libraries
- javaserver pages (jsp)
- john the ripper
- joomla!
- jupyter
- kotlin
- kotlin coroutines
- ladder logic
- lambda expressions
- lean software development
- linux network administration
- load testing
- loadrunner
- log analysis
- mac
- machine learning algorithms
- magento
- malware detection
- map 3d
- mapguide
- mariadb
- mathematical analysis
- mean stack
- mercurial
- meta-analysis
- metasploit
- meteor.js
- microcontrollers
- microservices
- microsoft deployment toolkit (mdt)
- microsoft dynamics nav
- microsoft power bi
- microsoft power query
- microsoft sql server
- microsoft visual studio code
- minitab
- mobile application development
- mobile game development
- mobile security
- mocha (javascript framework)
- multi-platform development
- multithreaded development
- nhibernate
- nist
- natural language processing (nlp)
- netbeans
- netstat
- network access control (nac)
- network architecture
- network monitoring tools
- network security
- network traffic analysis
- neural networks
- new relic
- nik software
- node.js
- non-fungible tokens (nfts)
- nuget
- os x
- owasp zap
- object oriented design
- object-oriented programming (oop)
- opengl
- opencart
- operating system administration
- operating systems
- oracle database
- oracle database administration
- oracle sql developer
- oraclevm
- pvcs
- package management
- pair programming
- parallel programming
- penetration testing
- performance monitoring
- personal data protection
- phpmyadmin
- polyglot
- polymer.js
- postgresql
- powershell
- predictive modeling
- presto
- probability
- process modeling
- programmable logic controller (plc)
- programming
- programming concepts
- puppet (software)
- pyspark
- pycharm
- python (programming language)
- qlik sense
- quantum gis
- rest apis
- rapid application development (rad)
- raspberry pi
- records management
- refactoring
- regression analysis
- relational databases
- remote device management
- remote troubleshooting
- remote user support
- rights management
- robohelp
- robotics
- rxjs
- sap bi
- sap crm
- sap cloud platform
- sql clustering
- ssl certificates
- sales engineering
- salesforce sales cloud
- salesforce.com administration
- scala
- scaled agile framework
- secure authentication
- secure coding
- secure remote access
- security compliance
- security incident response
- security management
- security metrics
- security operations
- security testing
- sharepoint administration
- sharepoint server
- smart devices
- socket.io
- software architectural design
- software architecture
- software deployment
- software design
- software development life cycle (sdlc)
- software development security
- software engineering practices
- software management
- software project management
- software requirements
- software troubleshooting
- software updates
- solidity
- sparx enterprise architect
- spring mvc
- spritekit
- squarespace
- statistical analysis
- storage architecture
- swift (programming language)
- symfony framework
- system administration
- tableau
- tenable.io
- terrain modeling
- test automation framework
- test driven development
- text mining
- threat & vulnerability management
- threat modeling
- topographic surveys
- tortoise svn
- trust and safety
- two-factor authentication
- typo3
- unity
- universal windows platform (uwp)
- unix
- user administration
- user management
- version control
- virtualization
- visual basic
- visual studio
- vmware
- vulnerability scanning
- wpf development
- web application design
- web application security
- web services api
- white box testing
- wiki development
- windows
- windows administration
- windows firewall
- windows presentation foundation (wpf)
- windows server
- windows software development
- windows support
- windows system administration
- wordpress
- xaml
- xampp
- xcode
- yaml
- zenmap
- ios design
- ios development
- ipad development
- pytest
- watchos
+jquery
+ajax
+api testing
+aws lambda
+aws sagemaker
+adobe edge
+amazon s3
+amazon sqs
+amazon web services (aws)
+android sdk
+android studio
+android testing
+angular command line interface (cli)
+apollo graphql
+application virtualization
+applied machine learning
+artificial intelligence (ai)
+artificial neural networks
+authentication
+azure data lake
+azure devops server
+azure functions
+azure kubernetes service (aks)
+azure service bus
+azure virtual machines
+big data analytics
+biometrics
+blockchain
+bootstrap
+browserify
+bug tracking
+business intelligence tools
+c (programming language)
+cli
+css flexbox
+cvs
+cakephp
+certified information privacy professional
+chrome developer tools
+cisco networking
+clearcase
+cloud computing
+cloud computing iaas
+cloud firestore
+cloud foundry
+cloud management
+cloud migration
+cloud operations
+cloud security
+cloud storage
+cloud strategy
+code review
+codeigniter
+comptia
+comptia network+
+computer forensics
+computer networking
+computer science
+concurrent programming
+couchdb
+cryptocurrency
+cybersecurity incident response
+dns administration
+data assessment
+data center design
+data center infrastructure
+data center management
+data center operations
+data engineering
+data ethics
+data governance
+data ingestion
+data loading
+data migration
+data privacy
+data processing
+data reduction
+data reporting
+data security
+data sharing
+data solutions
+data stewardship
+data storage
+data validation
+data visualization
+data warehousing
+database development
+database maintenance
+database management system (dbms)
+database monitoring
+database testing
+databases
+decentralized applications (dapps)
+deep learning
+devsecops
+digital forensics
+digital mapping
+digitization
+directory services
+django
+e-commerce optimization
+esri
+economic data analysis
+elastic stack (elk)
+electronic payment processing
+encryption
+enterprise architecture planning
+enterprise content management
+enterprise data management
+enterprise design patterns
+enterprise javabeans (ejb)
+enterprise network security
+enterprise reporting solutions
+ethereum
+ethical hacking
+express.js
+federated identity management
+fetch
+flask
+flutter
+forecasting
+framemaker
+gis modeling
+gml
+game development
+game engines
+game mechanics
+game programming
+general data protection regulation (gdpr)
+gitlab
+go (programming language)
+google api
+google cloud automl
+google cloud platform (gcp)
+graphs
+grasshopper
+group policy
+hadoop
+hadoop administration
+hardware deployments
+hashcat
+help desk implementation
+help desk support
+histograms
+hybrid cloud
+hydra
+hyperledger
+ibm spss statistics
+ida
+it governance
+it hardware support
+it infrastructure design
+it service delivery
+it service management
+itil process implementation
+identity & access management (iam)
+indexeddb
+infosphere
+information security awareness
+information visualization
+infrastructure automation
+integrated development environments
+internet safety
+internet security
+intrusion detection
+ionic framework
+json
+jakarta ee
+java
+java concurrency
+java frameworks
+javascript libraries
+javaserver pages (jsp)
+john the ripper
+joomla!
+jupyter
+kotlin
+kotlin coroutines
+ladder logic
+lambda expressions
+lean software development
+linux network administration
+load testing
+loadrunner
+log analysis
+mac
+machine learning algorithms
+magento
+malware detection
+map 3d
+mapguide
+mariadb
+mathematical analysis
+mean stack
+mercurial
+meta-analysis
+metasploit
+meteor.js
+microcontrollers
+microservices
+microsoft deployment toolkit (mdt)
+microsoft dynamics nav
+microsoft power bi
+microsoft power query
+microsoft sql server
+microsoft visual studio code
+minitab
+mobile application development
+mobile game development
+mobile security
+mocha (javascript framework)
+multi-platform development
+multithreaded development
+nhibernate
+nist
+natural language processing (nlp)
+netbeans
+netstat
+network access control (nac)
+network architecture
+network monitoring tools
+network security
+network traffic analysis
+neural networks
+new relic
+nik software
+node.js
+non-fungible tokens (nfts)
+nuget
+os x
+owasp zap
+object oriented design
+object-oriented programming (oop)
+opengl
+opencart
+operating system administration
+operating systems
+oracle database
+oracle database administration
+oracle sql developer
+oraclevm
+pvcs
+package management
+pair programming
+parallel programming
+penetration testing
+performance monitoring
+personal data protection
+phpmyadmin
+polyglot
+polymer.js
+postgresql
+powershell
+predictive modeling
+presto
+probability
+process modeling
+programmable logic controller (plc)
+programming
+programming concepts
+puppet (software)
+pyspark
+pycharm
+python (programming language)
+qlik sense
+quantum gis
+rest apis
+rapid application development (rad)
+raspberry pi
+records management
+refactoring
+regression analysis
+relational databases
+remote device management
+remote troubleshooting
+remote user support
+rights management
+robohelp
+robotics
+rxjs
+sap bi
+sap crm
+sap cloud platform
+sql clustering
+ssl certificates
+sales engineering
+salesforce sales cloud
+salesforce.com administration
+scala
+scaled agile framework
+secure authentication
+secure coding
+secure remote access
+security compliance
+security incident response
+security management
+security metrics
+security operations
+security testing
+sharepoint administration
+sharepoint server
+smart devices
+socket.io
+software architectural design
+software architecture
+software deployment
+software design
+software development life cycle (sdlc)
+software development security
+software engineering practices
+software management
+software project management
+software requirements
+software troubleshooting
+software updates
+solidity
+sparx enterprise architect
+spring mvc
+spritekit
+squarespace
+statistical analysis
+storage architecture
+swift (programming language)
+symfony framework
+system administration
+tableau
+tenable.io
+terrain modeling
+test automation framework
+test driven development
+text mining
+threat & vulnerability management
+threat modeling
+topographic surveys
+tortoise svn
+trust and safety
+two-factor authentication
+typo3
+unity
+universal windows platform (uwp)
+unix
+user administration
+user management
+version control
+virtualization
+visual basic
+visual studio
+vmware
+vulnerability scanning
+wpf development
+web application design
+web application security
+web services api
+white box testing
+wiki development
+windows
+windows administration
+windows firewall
+windows presentation foundation (wpf)
+windows server
+windows software development
+windows support
+windows system administration
+wordpress
+xaml
+xampp
+xcode
+yaml
+zenmap
+ios design
+ios development
+ipad development
+pytest
+watchos
 .net (5+) 
 .net core
 .net framework (1.0 - 4.8)
@@ -615,7 +614,9 @@ heroku
 hetzner
 homebrew
 htmx
-hugging face transformers
+huggingface
+hugging face
+transformers
 ibm cloud or watson
 ibm db2
 ipython
@@ -648,7 +649,7 @@ llvm's clang
 laravel
 lightning ai
 linear
-linode, now akamai
+linode
 linux distributions
 lisp
 loopback.io
@@ -720,7 +721,6 @@ opencv
 operating system distribution
 oracle
 oracle cloud infrastructure (oci)
-other (please specify):
 other linux-based
 php
 pacman
@@ -758,6 +758,7 @@ rad studio (delphi, c++ builder)
 rasberry pi
 ravendb
 react
+react.js
 react native
 red hat
 redis

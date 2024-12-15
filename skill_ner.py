@@ -1,6 +1,94 @@
-from llm import Agent, JobKeywordExtractor
+import spacy
+from spacy.tokens import Span
+import re
+from spacy.language import Language
 
-job_posting = """
+
+def load_initial_skill_list(filename="skills.txt"):
+    with open(filename, "r") as f:
+        skills = f.read().splitlines()
+    return skills
+
+
+vocabulary = load_initial_skill_list("baseline_taxonomies/skills.txt")
+
+
+# Your DynamicSkillFilter class to normalize the skills
+class DynamicSkillFilter:
+    def __init__(self, skill_list):
+        self.raw_skills = skill_list
+        self.normalized_skills = self._normalize_skills(skill_list)
+
+    def _normalize_skills(self, skill_list):
+        """
+        Generates normalized versions of skills for fuzzy matching.
+        """
+        normalized = {}
+        for skill in skill_list:
+            # Remove anything in parentheses and normalize spaces/case
+            clean_skill = re.sub(r"\(.*?\)", "", skill).strip().lower()
+            variations = {
+                clean_skill,
+                clean_skill.replace(" ", ""),
+                clean_skill.replace("-", ""),
+                clean_skill.replace(".", ""),
+            }
+            if " " in clean_skill:
+                words = clean_skill.split()
+                variations.add("".join(words))
+                variations.add(" ".join(words))
+                if len(words) > 2:
+                    variations.add("".join([word[0] for word in words]))
+            normalized[skill] = list(variations)
+        return normalized
+
+
+# Instantiate the DynamicSkillFilter
+filter = DynamicSkillFilter(vocabulary)
+
+# Create a list of all skill variants (normalized and original)
+all_variants = [
+    variant for variants in filter.normalized_skills.values() for variant in variants
+]
+
+
+@Language.component("skill_entity_component")
+def skill_entity_component(doc):
+    entities = []
+    for token in doc:
+        # Check if the token matches any of the skill variants
+        if token.text.lower() in all_variants:
+            start = token.i
+            end = token.i + 1
+            span = Span(doc, start, end, label="SKILL")
+            entities.append(span)
+
+    # Add detected entities to the document
+    doc.ents = entities
+    return doc
+
+
+@Language.component("company_entity_component")
+def company_entity_component(doc):
+    entities = []
+    for token in doc:
+        # Check if the token matches any of the skill variants
+        if token.text.lower() in all_variants:
+            start = token.i
+            end = token.i + 1
+            span = Span(doc, start, end, label="ORG")
+            entities.append(span)
+
+    # Add detected entities to the document
+    doc.ents = entities
+    return doc
+
+
+nlp = spacy.load("en_core_web_sm")
+nlp.add_pipe("company_entity_component", name="company_ner")
+nlp.add_pipe("skill_entity_component", name="skill_ner", last=True)
+
+text = """
 NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work in AI and digital twins is transforming the world's largest industries and profoundly impacting society — from gaming to robotics, self-driving cars to life-saving healthcare, climate change to virtual worlds where we can all connect and create. 
 
  
@@ -52,7 +140,6 @@ Currently pursuing a Bachelor's, Master's, or PhD degree within Computer Enginee
 Depending on the internship role, prior experience or knowledge requirements could include the following programming skills and technologies: Java, JavaScript, (including Node, React, Vue), SQL, C++, CUDA, OOP, Go, Python, Git, Perforce, Kubernetes and Microservices, Schedulers (LSF, SLURM), Containers (Docker), Configuration Automation (Ansible)  
 """
 
-job_extractor = JobKeywordExtractor(job_posting)
-job_description = job_extractor.extract_all_information()
-
-print(job_description)
+doc = nlp(text)
+for ent in doc.ents:
+    print(ent.text, ent.label_)
