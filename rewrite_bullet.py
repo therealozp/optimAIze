@@ -1,4 +1,9 @@
-from llm import Agent, JobKeywordExtractor
+from llm import (
+    Agent,
+    extract_all_information,
+    extract_high_level_responsibilites,
+    ActiveVerbRecommender,
+)
 
 job_posting = """
 NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work in AI and digital twins is transforming the world's largest industries and profoundly impacting society — from gaming to robotics, self-driving cars to life-saving healthcare, climate change to virtual worlds where we can all connect and create. 
@@ -52,7 +57,9 @@ Currently pursuing a Bachelor's, Master's, or PhD degree within Computer Enginee
 Depending on the internship role, prior experience or knowledge requirements could include the following programming skills and technologies: Java, JavaScript, (including Node, React, Vue), SQL, C++, CUDA, OOP, Go, Python, Git, Perforce, Kubernetes and Microservices, Schedulers (LSF, SLURM), Containers (Docker), Configuration Automation (Ansible)  
 """
 
-job_extractor = JobKeywordExtractor(job_posting)
-job_description = job_extractor.extract_all_information()
+job_description = extract_all_information(job_posting)
 
-print(job_description)
+print(job_description.responsibilities_description)
+hlr = extract_high_level_responsibilites(job_description.responsibilities_description)
+avr = ActiveVerbRecommender()
+print(avr.recommend(hlr))

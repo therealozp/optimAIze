@@ -1,21 +1,10 @@
-
-Improved customer profiling accuracy by 22% using advanced representation learning on customer transaction data.
-Developed a proof-of-concept that addressed cold-start and knowledge transfer problems, significantly boosting performance of baseline models such as XGBoost
-Delivered tabular learning proposal using PyTorch and HuggingFace, enhancing model deployment with Docker and Streamlit for user-friendly ML applications.
-Collaborated on autonomous vehicle engineering, integrating lidars, radars, cameras, and controllers for sensor fusion.
-Developed C++ SDK and network socket libraries for Cohda on-board units, enabling custom data packet transmission
-Programmed firmware for GNSS (GPS) devices, ensuring high-accuracy data for an FDOT autonomous bus project.
 Led a team of 5 in designing a tailored AR business integration solution with Next.js and Three.js
-Achieved 60% speed-up of editor component through optimized local storage caching and batching of server updates
-Built a scalable backend with MongoDB and DigitalOcean Spaces, integrating NextAuth and JWT for user authentication 
-Completed MVP in 4 months, earning first-place funding at a tech conference of 1,000+ industry experts
 Secured a $1,000 sponsorship for LabJack data acquisition equipment, enabling real-time wireless telemetry capabilities.
 Optimized C++ math library, boosting processing speed by 230% while ensuring code safety for high-performance computing.
 Created interactive visualizations for graphs, trees, and various data structures with react-force-graph and Vite.
 Optimized animation performance for Dijkstra’s algorithm and A* pathfinding using memoization and batch updates, achieving a 120% reduction in rendering latency (+20% average frames per second, -30ms average time to render).
 Optimized embedding storage in PostgreSQL using ChromaDB references, resulting in a 90% increase in retrieval speed.
 Developed a scalable Fast API backend to support high-volume image and text processing with Ada-002 embeddings and LangChain, resulting in 15% increases in accurate content identification.
-Built a custom data pipeline for real-time data processing with Kafka and Spark, enabling 10x faster data ingestion and processing.
 Developed a custom data pipeline for real-time data processing with Kafka and Spark, enabling 10x faster data ingestion and processing.
 Improved performance of stock selection algorithm based on CAPM by introducing mixed integer programming, increasing Sharpe ratio by 6% and reducing drawdown by 5%.
 Wrote fully functional backtesting program with Python to implement statistical arbitrage strategies of Treasury bond futures based on residual deviation signal
@@ -26,5 +15,4 @@ Spearheading the development of an automated booking system for laser cutting ma
 Applied SDLC best practices and machine learning research to improve predictive accuracy by 15% and reduce data processing time, while enhancing software reliability, leading to a 20% increase in adherence rate.
 Architected and deployed a Kafka-driven pipeline to stream finance reports, achieving a 15% reduction in costs.
 Engineered Spring Boot batch applications to integrate AWS cloud systems with on-premise COTS platforms.
-Developed and optimized Python script with parallel processing to migrate over 2.5 million mainframe records to SQL Server, reducing mainframe usage costs and saving approximately $100K annuall
-]
+Developed and optimized Python script with parallel processing to migrate over 2.5 million mainframe records to SQL Server, reducing mainframe usage costs and saving approximately $100K annually.

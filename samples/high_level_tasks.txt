@@ -1,0 +1,19 @@
+"Action": "Design and develop",
+"Object": "SDKs to emit telemetry signals",
+"Skills/Tools": ["Logs", "Metrics", "Traces", "Events"],
+"Outcome": "Enable signal emission across various runtime environments"
+
+"Action": "Build and maintain",
+"Object": "Infrastructure to ship, store, and process telemetry data",
+"Skills/Tools": ["Scalable infrastructure", "Telemetry data pipelines"],
+"Outcome": "Handle terabytes of telemetry data"
+
+"Action": "Create",
+"Object": "Intuitive UI tools for telemetry insights",
+"Skills/Tools": ["UI design", "Telemetry insights"],
+"Outcome": "Provide engineers actionable information to improve system performance and reliability"
+
+"Action": "Create/Update",
+"Object": "Web user interfaces and back-end code",
+"Skills/Tools": ["C#", "JavaScript", "Angular"],
+"Outcome": "Meet functional needs using latest technologies"
