@@ -90,6 +90,8 @@ database management system (dbms)
 database monitoring
 database testing
 databases
+transformers
+embedding
 decentralized applications (dapps)
 deep learning
 devsecops
@@ -287,6 +289,7 @@ sales engineering
 salesforce sales cloud
 salesforce.com administration
 scala
+large language models
 scaled agile framework
 secure authentication
 secure coding
@@ -446,7 +449,6 @@ bun
 burp suite
 business analytics
 business intelligence
-business intelligence (bi)
 c
 c#
 c++

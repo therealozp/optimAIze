@@ -1,4 +1,4 @@
-from llm import (
+from process_job_description import (
     Agent,
     extract_all_information,
     extract_high_level_responsibilites,
@@ -6,60 +6,53 @@ from llm import (
 )
 
 job_posting = """
-NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work in AI and digital twins is transforming the world's largest industries and profoundly impacting society — from gaming to robotics, self-driving cars to life-saving healthcare, climate change to virtual worlds where we can all connect and create. 
+Intel put the Silicon in Silicon Valley. No one else is this obsessed with engineering a brighter future. Every day, we create world changing technology that enriches the lives of every person on earth. So, if you have a big idea, let’s do something wonderful together. Join us, because at Intel, we are building a better tomorrow. Want to learn more? Visit our YouTube Channel or the links below!
 
- 
+Life at Intel
+Diversity at Intel
+Reporting to the Manager of Software Engineering is responsible for wearing multiple hats from viewing the architectural approach with a critical eye, making implementation decisions, and proactively communicating this with the team.
 
-Our internships offer an excellent opportunity to expand your career and get hands on with one of our industry leading Software teams. We’re seeking strategic, ambitious, hard-working, and creative individuals who are passionate about helping us tackle challenges no one else can solve. 
+Designs, implements, and maintains tools and processes for the continuous integration, delivery, and deployment of software. Will work with developers, testers, and system administrators to ensure the entire software development life cycle is efficient, smooth, and error-free.
 
- 
+The successful candidate will possess the following attributes:
 
-Throughout the minimum 12-week internship, students will work on projects that have a measurable impact on our business. We’re looking for students pursuing Bachelor's, Master's, or PhD degree within a relevant or related field. 
+Leadership
+Problem Solving
+Decision Making
+Communication
+Multi-tasking
+Critical Thinking skills
+This is a full-time, Hybrid,  3-month internship, targeting a start date of early 2025.  Intern must be able to be on-site in Santa Clara CA, Folsom CA, or Phoenix AZ.  
 
- 
+#DesignEnablement
 
-Potential Internships in this field include:  
+Qualifications:
+What we need to see (Minimum Qualifications):
 
-Development Tools 
+Must be pursuing a Bachelors degree in computer science or related STEM technical field.
+3+ months experience developing tools, libraries, and infrastructure for data preprocessing, model training/finetuning, and deployment of LLMs.
 
-Debugging complex system-level issues using Jenkins  
 
-Course or internship experience related to the following areas could be required: Relational Databases, Linear Algebra & Numerical Methods, Operating Systems (memory/resource management), Scheduling and Process Control, Hardware Virtualization 
+Preferred Qualifications:
 
-Cloud 
+1+ years experience developing tools, libraries, and infrastructure for data preprocessing, model training/finetuning, and deployment of LLMs in research and production environments.
+Technology stack: Exposure to one or more of these is preferred:
 
-Supporting overall architecture and design of our cloud storage infrastructure  
-
-Implementing and troubleshooting storage and data platform tools, automating storage infrastructure end-to-end 
-
-Course or internship experience related to the following areas could be required: Distributed Systems, Data Structures & Algorithms, Virtualization, Automation/Scripting, Container & Cluster Management, Debugging 
-
-Tools Infrastructure 
-
-Building industry leading technology by proving workflows and infrastructure, alongside a team of experts in production software development and chip design methodologies 
-
-Enabling success for content running on the chip from application tracing and analysis to modeling, diagnostics, performance tuning, and debugging  
-
-Course or internship experience related to the following areas and technologies could be required: Unix/Shell Scripting, Linux, Java, JavaScript (including Node, React, Vue), C++, CUDA, OOP, Go, Python, Git, GitLab, Perforce, Kubernetes and Microservices, Schedulers (LSF, SLURM), Containers (Docker), Configuration Automation (Ansible) 
-
-Data Science 
-
-Supporting cloud and on-premise infrastructure for backend analytics  
-
-Working on diverse data technologies including, Kafka, ELK, Cassandra, and Spark 
-
-Course or internship experience related to the following areas could be required: Data Science, Data Engineering, Open Source Data Science Tools, Open Source Libraries 
-
-What we need to see:  
-
-Currently pursuing a Bachelor's, Master's, or PhD degree within Computer Engineering, Electrical Engineering, Computer Science, or a related field 
-
-Depending on the internship role, prior experience or knowledge requirements could include the following programming skills and technologies: Java, JavaScript, (including Node, React, Vue), SQL, C++, CUDA, OOP, Go, Python, Git, Perforce, Kubernetes and Microservices, Schedulers (LSF, SLURM), Containers (Docker), Configuration Automation (Ansible)  
+Cloud Platforms: AWS, Azure, GCP
+Programming Languages: Python, Node.js, Go, Ruby
+APIs and Integration: OpenAPI, FastAPI, Swagger, Flask, REST
+Databases: PostgreSQL, MySQL, MongoDB, Redis
+ML Frameworks: PyTorch, Scikit-learn, Keras
+Development and Deployment: Jenkins, Docker, Kubernetes
+Monitoring and Logging: Prometheus, Grafana, ELK Stack.
+Version Control: Git, GitHub, GitLab
+Architecture Design and Modeling: Microsoft Visio, Drawio.
+Collaboration and Project Management: JIRA, Confluence, Trello
 """
 
-job_description = extract_all_information(job_posting)
-
-print(job_description.responsibilities_description)
-hlr = extract_high_level_responsibilites(job_description.responsibilities_description)
-avr = ActiveVerbRecommender()
-print(avr.recommend(hlr))
+agent = Agent(job_description=job_posting)
+print(
+    agent.rewrite_bullet(
+        "Created a script using SQL and Python to measure the accuracy of different chatbot models, which was used to evaluate the effectiveness of new updates and inform further build plans."
+    )
+)

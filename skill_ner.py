@@ -63,12 +63,9 @@ def load_initial_skill_list(filename="skills.txt"):
     return skills
 
 
-def filter_skills(job_posting):
+def get_skills(text):
     nlp = spacy.load("en_core_web_sm")
     nlp.add_pipe("skill_entity_component", name="skill_ner", last=True)
 
-    doc = nlp(job_posting)
-    for ent in doc.ents:
-        print(ent.text, ent.label_)
-
+    doc = nlp(text)
     return [ent.text for ent in doc.ents if ent.label_ == "SKILL"]

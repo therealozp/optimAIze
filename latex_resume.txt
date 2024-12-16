@@ -1,0 +1,36 @@
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {AI Researcher/Engineer Intern}{Kyanon Digital}
+      {Vietnam}{May -- August 2024}
+      \resumeItemListStart
+        \resumeItem{Enhanced customer profiling accuracy \textbf{by 22\%} by applying transformer-based embedding models to transaction data.}
+        \resumeItem{Designed PoC to solve cold-start and knowledge transfer challenges in recommender systems, increasing baseline XGBoost accuracy \textbf{by 10\%}, leading to improved targeting for personalized marketing campaigns.}
+        \resumeItem{Delivered tabular learning proposal using \textbf{PyTorch} and \textbf{HuggingFace}, enhancing model deployment with \textbf{Docker} and \textbf{Streamlit} for user-friendly ML applications.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineering Lab Assistant}{Univ. of South Florida RANCS Lab}{Tampa}{October 2023 -- Present}
+      \resumeItemListStart
+        \resumeItem{Collaborated on autonomous vehicle engineering, integrating \textbf{lidars, radars, cameras}, and controllers for sensor fusion.}
+        \resumeItem{Developed C++ SDK and network socket libraries for Cohda on-board units, enabling custom data packet transmission.}
+        \resumeItem{Programmed firmware for GNSS (GPS) devices, ensuring high-accuracy data for an FDOT autonomous bus project.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%----------- Projects ------------%
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{the last data structures visualizer you will ever need} $|$ \emph{Vite, Chakra-UI}}{January 2024}
+          \resumeItemListStart
+            \resumeItem{Created interactive visualizations for graphs, trees, and various data structures with react-force-graph and Vite.}
+            \resumeItem{Optimized animation performance for Dijkstra's algorithm and A* pathfinding using memoization and batch updates, achieving a \textbf{120\% reduction} in rendering latency (\textbf{+20\% average frames} per second, \textbf{-30ms average time} to render).}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{LegAI} $|$ \emph{NextJS, FastAPI, Python, PostgreSQL, ChromaDB}}{October 2023}
+          \resumeItemListStart
+            \resumeItem{Optimized embedding storage in PostgreSQL using ChromaDB references, resulting in a \textbf{90\% increase} in retrieval speed.}
+            \resumeItem{Developed a scalable Fast API backend to support high-volume image and text processing with \textbf{Ada-002 text embeddings} and \textbf{LangChain}, resulting in \textbf{15\% increase}s in accurate content identification.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd

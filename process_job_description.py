@@ -2,6 +2,7 @@ from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 from langchain_core.output_parsers import PydanticOutputParser
+from skill_ner import get_skills_from_posting
 
 
 class JobDescription(BaseModel):
@@ -39,8 +40,7 @@ def extract_all_information(job_description):
     parser = PydanticOutputParser(pydantic_object=JobDescription)
 
     base = """
-    You are an expert job information extractor assistant. Your task is to extract all the relevant details about the company, role responsibilities, technical requirements, verbatim from the posting. Evaluate carefully and extract exhaustively.
-        """
+    You are an expert job information extractor assistant. Your task is to extract all the relevant details about the company, role responsibilities, technical requirements, verbatim from the posting. Look inside "Qualifications" sections for hints of the role responsibilities as well. Evaluate carefully and extract exhaustively."""
 
     prompt = ChatPromptTemplate.from_messages(
         [
@@ -67,17 +67,26 @@ def extract_all_information(job_description):
 
 def extract_high_level_responsibilites(parsed_responsibilities_description):
     llm = ChatOllama(
-        model="llama3.2", num_ctx=10000, temperature=0
+        model="llama3.2", num_ctx=10000, temperature=0.5
     ).with_structured_output(HighLevelObjectives)
 
     base = """
-    You are an expert job information extractor assistant specializing in summarizing high-level responsibilities from a job description. Your task is to extract the general line of work involved, and NOT specific technologies such as programming languages, methodologies. Generally, they follow the same pattern:, such as:
+    You are an expert job information extractor assistant specializing in summarizing specific responsibilities from a job description. Consider the entire job description as a whole, do not tunnel vision into one section
+     
+    You are to scan the entire passage of information, and extract all the relevant details. Sometimes, the responsibilities are clearly stated, but sometimes, it is hidden inside the "Requirements" or "Qualifications" section.
+
+    Your task is to extract the specific technical work involved, but NOT programming languages. Generally, the requested data follow the same patterns, such as:
     
     <Examples>
-    - Design and develop SDKs to emit telemetry signals such as logs, metrics, traces, and events across various runtime environments
-    - Build and maintain infrastructure to ship, store, and process terabytes of telemetry data
-    - Create intuitive UI tools that generate automated insights from telemetry data, providing engineers with actionable information to improve system performance and reliability
+    - Design and develop SDKs to...
+    - Build and maintain infrastructure to...
+    - Create intuitive UI tools that generate automated insights from telemetry data
     - Create/Update Web basic User Interfaces and back-end code as per the functional needs using the latest technologies such as C#, JavaScript, and Angular
+    - Develop tools, libraries, and infrastructure for data preprocessing,
+    - Train/finetune machine learning models...
+    - Deployment of LLMs in research and production environments
+    - Write mission-critical software for autonomous drones
+    - AND MORE!
     </Examples>
     """
 
@@ -126,26 +135,25 @@ class ActiveVerbRecommender:
 
 class Agent:
     def __init__(self, job_description=None):
-        self.llm = ChatOllama(model="llama3.2", num_ctx=10000)
+        self.llm = ChatOllama(model="llama3.2", num_ctx=10000, temperature=0.2)
         self.job_description = job_description
+        self.bullet_samples_path = "samples/bullet-positive-samples.txt"
 
-        self.bullet_samples = "samples/bullet-positive-samples.txt"
-        self.action_verbs = "samples/action_verbs.txt"
+        self.processed_job_description = None
+        self.high_level_responsibilities = None
+        self.skills = None
+        self.action_verbs = None
+        self.bullet_samples = None
 
-    def give_bullet_samples(self):
-        with open(self.bullet_samples, "r") as f:
-            return f.readlines()
-
-    def give_action_verbs(self):
-        with open(self.action_verbs, "r") as f:
-            return f.readlines()
+        with open(self.bullet_samples_path, "r") as f:
+            self.bullet_samples = ",".join(f.readlines())
 
     def rewrite_bullet(self, bullet):
         base = """
         You are an assistant specializing in optimizing resume bullet points for maximum impact and technical clarity. For each bullet point provided, iterate through these steps:
 
         1. Evaluate the bullet point for impact, clarity, and relevance.
-        2. If the bullet is of good quality and relevant, keep it as-is.
+        2. If the bullet is of good quality and relevant, keep it as-is, and tell the user it's good.
         3. Enumerate improvements you plan to make to the bullet point.
         3. Deliver the final rewritten bullet point
 
@@ -158,75 +166,98 @@ class Agent:
         - The bullet point is authentic, engaging, and tailored to the provided job description.
         - Ensure readability. Use action verbs and concise language.
         """
-        history = [
-            (
-                "system",
-                base,
-            ),
-        ]
+        # prompt consists of 5 main parts:
+        # bullet point
+        # relevant job description info, from extract_high_level_responsibilities
+        # technologies required, from skill_ner
+        # action verbs
+        # sample bullet points
 
-        ## rewrite in three stages:
-        # give the model the original bullet point for first path
-        first_iter = "Please help me rewrite the following bullet point: " + bullet
-        history.append(("human", first_iter))
-        prompt = ChatPromptTemplate.from_messages(history)
-        chain = prompt | self.llm
-        response = chain.invoke({})
+        message = """
+        Rewrite the bullet point below:
 
-        print(first_iter)
-        print(response.content)
+        <BULLET TO REWRITE>
+        {bullet}
+        </BULLET TO REWRITE>
+        
+        <JOB DESCRIPTION>
+        {job_description}
+        </JOB DESCRIPTION>
 
-        # save response
-        history.append(("assistant", response.content))
+        <RELEVANT TECHNOLOGIES>
+        {relevant_technologies}
+        </RELEVANT TECHNOLOGIES>
 
-        # give model action verbs to improve on second path
-        second_iter = """
-        Here are some action verbs to consider while rewriting the bullet point. Can you improve the bullet point with any of these?"""
-        for av in self.give_action_verbs():
-            second_iter += f"- {av}\n"
-        history.append(("system", second_iter))
-        prompt = ChatPromptTemplate.from_messages(history)
-        chain = prompt | self.llm
-        response = chain.invoke({})
+        <ACTION VERBS>
+        {action_verbs}
+        </ACTION VERBS>
 
-        print(
-            "Here are some action verbs. Can you improve the bullet point with any of these?"
-        )
-        print(response.content)
-
-        # save response
-        history.append(("assistant", response.content))
-
-        # give model some sample bullet points to rewrite on third path
-        third_iter = "Here are some sample bullet points to help you rewrite the original bullet point: "
-        for sample in self.give_bullet_samples():
-            third_iter += f"- {sample}\n"
-
-        history.append(("system", third_iter))
-        prompt = ChatPromptTemplate.from_messages(history)
-        chain = prompt | self.llm
-        response = chain.invoke({})
-
-        print(
-            "Here are some sample bullet points to help you rewrite the original bullet point:"
-        )
-        print(response.content)
-
-        # save response
-        history.append(("assistant", response.content))
-
-        # last path to enforce requirements
-        last_iter = 'Please rewrite the bullet point "{bullet}" with the feedback provided. Note the following requirements: '
-        last_iter += """
-        - No "fluff", empty, vacuous statements, and vague language.
-        - The bullet point is authentic and engaging.
-        - Quantify and qualify achievements wherever possible. Use metrics, numbers, results to elaborate on impact.
-        - Skills and achievements should be tailored to the job.
+        <EXAMPLE BULLETS FOR REFERENCE ONLY>
+        {sample_bullets}
+        </EXAMPLE BULLETS FOR REFERENCE ONLY>
         """
 
-        history.append(("human", last_iter))
-        prompt = ChatPromptTemplate.from_messages(history)
+        print("processing job description...")
+        while self.processed_job_description is None:
+            jd = extract_all_information(self.job_description)
+            print(jd.company_name)
+            print(jd.job_title)
+            print(jd.location)
+            print(jd.company_description)
+            print(jd.responsibilities_description)
+            user_jd_ok = input(f"Is this the correct job description? (Y/N)")
+            if user_jd_ok.lower() == "y":
+                self.processed_job_description = jd
+                break
+            else:
+                print("trying again...")
+        else:
+            print("job description has been processed, and entry exists in cache.")
+        print()
+
+        print("processing high level responsibilities...")
+        while self.high_level_responsibilities is None:
+            hlr = extract_high_level_responsibilites(jd.responsibilities_description)
+            print(hlr)
+            user_hlr_ok = input(
+                f"Is this the correct high level responsibilities? (Y/N)"
+            )
+            if user_hlr_ok.lower() == "y":
+                self.high_level_responsibilities = hlr
+                break
+            else:
+                print("trying again...")
+        else:
+            print(
+                "high level responsibilities have been processed, and entry exists in cache."
+            )
+        print()
+
+        print("processing skills...")
+        self.skills = get_skills_from_posting(self.job_description)
+        print("Recognized skills in processing: ", self.skills)
+        print()
+        self.action_verbs = ActiveVerbRecommender().recommend(
+            jd.responsibilities_description
+        )
+
+        prompt = ChatPromptTemplate.from_messages(
+            {("system", base), ("human", message)}
+        )
+
         chain = prompt | self.llm
-        response = chain.invoke({"bullet": bullet})
+        user_ok = "y"
+        while user_ok.lower() == "y":
+            response = chain.invoke(
+                {
+                    "bullet": bullet,
+                    "job_description": self.high_level_responsibilities,
+                    "relevant_technologies": self.skills,
+                    "action_verbs": self.action_verbs,
+                    "sample_bullets": self.bullet_samples,
+                }
+            )
+            print("response received: ", response.content)
+            user_ok = input("try again?")
 
         return response.content
