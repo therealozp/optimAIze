@@ -1,0 +1,10 @@
+### information extraction
+
+- [x] parse the resume
+- [x] parse the job description
+
+### rewriting portion
+
+- [ ] define schema for bullet
+- [ ] define schema for model result
+- [ ] create pipeline for iterating through bullet points -> store into rewrittten

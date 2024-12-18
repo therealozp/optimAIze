@@ -1,0 +1,125 @@
+\begin{document}
+
+\begin{center}
+    \textbf{\LARGE Khang Le} \\ \vspace{1pt}
+    \normalsize (346) 252-9698 $|$ \href{mailto:anhkhang.le0910@gmail.com}{anhkhang.le0910@gmail.com} $|$ Tampa, FL \\
+    \href{https://khangis.dev}{ \underline{khangis.dev}} $|$
+    \href{https://linkedin.com/in/anhkhang-le}{\underline{linkedin.com/in/anhkhang-le}} $|$
+    \href{https://github.com/therealozp}{\underline{github.com/therealozp}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeEducationSubheading
+      {University of South Florida}{Tampa, FL}
+      \resumeItemListStart
+      \resumeItem{
+        BS in Computer Science, Minor in Economics $|$ \textbf{GPA 4.0/4.0} \hfill Aug 2022 -- May 2026}
+      \resumeItem{Coursework: Computer Organization \textbf{(TA)}, Computer Architecture, Data Structures and Algorithms, Operating Systems, Compilers, Parallel Computing}
+      % \resumeItem{\textbf{Participant of Amazon’s Campus Summer Series}}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+%
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {AI Researcher/Engineer Intern}{Kyanon Digital}
+      {Vietnam}{May -- August 2024}
+      \resumeItemListStart
+        \resumeItem{Enhanced customer profiling accuracy \textbf{by 22\%} by applying transformer-based embedding models to transaction data.}
+        \resumeItem{Designed PoC to solve cold-start and knowledge transfer challenges in recommender systems, increasing baseline XGBoost accuracy \textbf{by 10\%}, leading to improved targeting for personalized marketing campaigns.}
+        \resumeItem{Delivered tabular learning proposal using \textbf{PyTorch} and \textbf{HuggingFace}, enhancing model deployment with \textbf{Docker} and \textbf{Streamlit} for user-friendly ML applications.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Engineering Lab Assistant}{Univ. of South Florida RANCS Lab}{Tampa}{October 2023 -- Present}
+      % {Lab Assistant}{RANCS (Resilient, Autonomous, Networked Control Systems) Lab}{Tampa}{October 2023 -- Present}
+      
+      \resumeItemListStart
+        \resumeItem{Collaborated on autonomous vehicle engineering, integrating \textbf{lidars, radars, cameras}, and controllers for sensor fusion.}
+        \resumeItem{Developed C++ SDK and network socket libraries for Cohda on-board units, enabling custom data packet transmission.}
+        \resumeItem{Programmed firmware for GNSS (GPS) devices, ensuring high-accuracy data for an FDOT autonomous bus project.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Full-stack Developer}{Augmented Reality Integration Solutions (ARIS)}
+      {Remote}{June 2023 -- Present}
+      \resumeItemListStart
+        \resumeItem{Led team of 5 developers in designing a tailored AR business integration solution with \textbf{Next.JS and Three.JS}.}
+        \resumeItem{Optimized editor responsiveness \textbf{by 60\%} through local storage caching and batching server update operations.}
+        \resumeItem{Built a scalable backend with \textbf{MongoDB} and \textbf{S3}, integrating \textbf{NextAuth-JWT}  for user authentication.}
+        \resumeItem{Completed MVP in 4 months, earning \textbf{first-place funding} at a tech conference of \textbf{1,000+ industry experts}.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%----------- Projects ------------%
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {the last data structures visualizer you will ever need}{Vite, Chakra-UI}{January 2024}
+          \resumeItemListStart
+            \resumeItem{Created interactive visualizations for graphs, trees, and various data structures with react-force-graph and Vite.}
+            \resumeItem{Optimized animation performance for Dijkstra's algorithm and A* pathfinding using memoization and batch updates, achieving \textbf{120\% reduction} in rendering latency (\textbf{+20\% average frames} per second, \textbf{-30ms average time} to render).}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {LegAI}{NextJS, FastAPI, Python, PostgreSQL, ChromaDB}{October 2023}
+          \resumeItemListStart
+            \resumeItem{Optimized embedding storage in PostgreSQL using ChromaDB references, resulting in a \textbf{90\% increase} in retrieval}
+            \resumeItem{Developed a scalable Fast API backend to support high-volume image and text processing with \textbf{Ada-002 text embeddings} and \textbf{LangChain}, resulting in \textbf{15\% increase}s in accurate content identification.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%----------- Leadership ------------%
+\section{Leadership}
+    \resumeSubHeadingListStart
+    \resumeSubheading
+      {Data Acquisition Lead}{Bulls Racing FSAE}
+      {Tampa}{January 2024 -- Present}
+      \resumeItemListStart
+        \resumeItem{Secured \textbf{\$1,000 sponsorship} for LabJack data acquisition equipment, enabling real-time wireless telemetry capabilities.}
+        \resumeItem{Optimized C++ custom high-performance computing math library, \textbf{boosting processing speed by 230\%} while ensuring code safety.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+    
+
+ %-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.1in, label={}]
+    \normalsize{
+    \item{
+     \textbf{Languages}{: Python, JavaScript, TypeScript, C++, C\#, C, Java, Golang, Rust, RISC-V}
+     \vspace{-7pt}}
+    \item{ 
+     \textbf{Web Technologies}{: React, React Native, Angular, Svelte,  Node.js, FastAPI, GraphQL, Express.js, MongoDB, SQL}
+     \vspace{-7pt}
+     }
+     \item{
+     \textbf{Data Science} and \textbf{Machine Learning}{: Tensorflow, Keras, PyTorch, Torch Geometric, Pandas, NumPy, Scikit Learn}
+     \vspace{-7pt}
+     }
+     \item{
+     \textbf{Systems and Tools}{: Linux/Unix, Windows, Bash, Git, AWS, Google Cloud, Docker}
+    }
+    \vspace{-3pt}
+    }
+ \end{itemize}
+
+%-----------HONORS AND AWARDS-----------
+\section{Honors \& Awards}
+ \begin{itemize}[leftmargin=0.1in, label={}]
+     \normalsize{\item{
+         \resumeAwardsItem{\textbf{Top 3 teams} in ICPC Division 2 Southeast Regionals}{2024}
+     }}
+     \normalsize{\item{
+        \resumeAwardsItem{\textbf{Runner-up} in Morgan \& Morgan AI Challenge at KnightHacks}{2023}
+     }}
+      
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
