@@ -5,6 +5,6 @@
 
 ### rewriting portion
 
-- [ ] define schema for bullet
-- [ ] define schema for model result
+- [x] define schema for bullet
+- [x] define schema for model result
 - [ ] create pipeline for iterating through bullet points -> store into rewrittten

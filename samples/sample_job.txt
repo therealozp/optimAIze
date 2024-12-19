@@ -1,42 +1,27 @@
-Intel put the Silicon in Silicon Valley. No one else is this obsessed with engineering a brighter future. Every day, we create world changing technology that enriches the lives of every person on earth. So, if you have a big idea, let’s do something wonderful together. Join us, because at Intel, we are building a better tomorrow. Want to learn more? Visit our YouTube Channel or the links below!
+Xometry (NASDAQ: XMTR) powers the industries of today and tomorrow by connecting the people with big ideas to the manufacturers who can bring them to life. Xometry’s digital marketplace gives manufacturers the critical resources they need to grow their business while also making it easy for buyers at Fortune 1000 companies to tap into global manufacturing capacity.
 
-Life at Intel
-Diversity at Intel
-Reporting to the Manager of Software Engineering is responsible for wearing multiple hats from viewing the architectural approach with a critical eye, making implementation decisions, and proactively communicating this with the team.
+Are you a driven college student eager to make a real impact at a cutting-edge technology company? Xometry's Summer Internship Program offers a unique opportunity to gain hands-on experience and develop essential skills in the manufacturing industry.
 
-Designs, implements, and maintains tools and processes for the continuous integration, delivery, and deployment of software. Will work with developers, testers, and system administrators to ensure the entire software development life cycle is efficient, smooth, and error-free.
+As a Machine Learning Intern at Xometry, you’ll work on real-world projects that directly impact our AI-driven solutions, collaborate with experienced machine learning engineers, and learn how to build and deploy models that solve complex problems in a dynamic and fast-paced environment.
 
-The successful candidate will possess the following attributes:
+What You'll Do:
 
-Leadership
-Problem Solving
-Decision Making
-Communication
-Multi-tasking
-Critical Thinking skills
-This is a full-time, Hybrid,  3-month internship, targeting a start date of early 2025.  Intern must be able to be on-site in Santa Clara CA, Folsom CA, or Phoenix AZ.  
+Design, build, and optimize machine learning models to enhance Xometry’s platform and business operations.
+Analyze large datasets to extract meaningful patterns and insights.
+Collaborate with cross-functional teams to integrate machine learning models into production systems.
+Learn and apply best practices in model evaluation, performance tuning, and deployment.
+Gain exposure to cutting-edge machine learning frameworks, tools, and techniques used in the manufacturing industry.
+What We Offer:
 
-#DesignEnablement
+Mentorship: Learn from experienced professionals and receive guidance from a dedicated intern captain.
+Dynamic Culture: Embrace a fast-paced, collaborative environment that values innovation and flexibility.
+Professional Development: Gain practical skills in digital marketing, social media, content marketing, and more.
+What We’re Looking For:
 
-Qualifications:
-What we need to see (Minimum Qualifications):
-
-Must be pursuing a Bachelors degree in computer science or related STEM technical field.
-3+ months experience developing tools, libraries, and infrastructure for data preprocessing, model training/finetuning, and deployment of LLMs.
-
-
-Preferred Qualifications:
-
-1+ years experience developing tools, libraries, and infrastructure for data preprocessing, model training/finetuning, and deployment of LLMs in research and production environments.
-Technology stack: Exposure to one or more of these is preferred:
-
-Cloud Platforms: AWS, Azure, GCP
-Programming Languages: Python, Node.js, Go, Ruby
-APIs and Integration: OpenAPI, FastAPI, Swagger, Flask, REST
-Databases: PostgreSQL, MySQL, MongoDB, Redis
-ML Frameworks: PyTorch, Scikit-learn, Keras
-Development and Deployment: Jenkins, Docker, Kubernetes
-Monitoring and Logging: Prometheus, Grafana, ELK Stack.
-Version Control: Git, GitHub, GitLab
-Architecture Design and Modeling: Microsoft Visio, Drawio.
-Collaboration and Project Management: JIRA, Confluence, Trello
+Academic Excellence: Currently enrolled in an accredited college or university, graduating in December 2025 or May 2026, with a minimum 3.5 GPA.
+Strong Work Ethic: Ability to work full-time (40 hours/week) during the internship period (June 9 - August 15, 2025).
+Excellent Communication Skills: Strong verbal and written communication skills.
+Entrepreneurial Spirit: A passion for problem-solving and a desire to drive results.
+Legal Authorization: Ability to provide proof of legal right to work in the United States.
+Location Requirement: Ability to commute to our North Bethesda, MD or Lexington, KY office to work onsite for at least 3 days a week.
+Provide Unofficial Transcript 

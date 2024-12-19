@@ -6,6 +6,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
 
 from skill_ner import get_skills
+from latex_parser import parse_latex_resume
+import json
 
 
 def get_resume_skills(latex_text: str) -> List[str]:
@@ -19,8 +21,9 @@ def retrieve_absent_skills(resume_skills, job_skills):
 
 
 if __name__ == "__main__":
-    with open("samples/sample_resume.txt", "r") as f:
+    with open("latex_resume.txt", "r") as f:
         resume_text = f.read()
+        print(json.dumps(parse_latex_resume(resume_text)))
         resume_skills = get_resume_skills(resume_text)
         print(resume_skills)
 

@@ -1,5 +1,6 @@
 import re
 import json
+import pickle
 
 
 def parse_latex_resume(latex_text):
@@ -22,7 +23,7 @@ def parse_latex_resume(latex_text):
 
     # matches \resumeProjectHeading{\textbf{...}...}{...}
     project_pattern = re.compile(
-        r"\\resumeProjectHeading\s*{\s*\\textbf{(.+?)}.*?}\s*{\s*(.+?)}"
+        r"\\resumeProjectHeading\s*{(.+?)}\s*{(.+?)}\s*{(.+?)}"
         r"(.*?)\\resumeItemListEnd",
         re.DOTALL,
     )
@@ -52,7 +53,7 @@ def parse_latex_resume(latex_text):
         elif section.lower() == "projects":
             project_matches = project_pattern.finditer(latex_text)
             for match in project_matches:
-                project_name, tech_stack, date, items_block = match
+                project_name, tech_stack, date, items_block = match.groups()
                 entry = {
                     "project_name": project_name.strip(),
                     "date": date.strip(),
@@ -68,8 +69,14 @@ def parse_latex_resume(latex_text):
     return parsed_data
 
 
-if __name__ == "__main__":
-    with open("sample_job.txt", "r") as f:
-        latex_source = f.read()
-        parsed_data = parse_latex_resume(latex_source)
-        print(json.dumps(parsed_data, indent=2))
+def save_resume(parsed_data, output_file_path):
+    if not output_file_path.endswith(".pkl"):
+        output_file_path += ".pkl"
+    with open(output_file_path, "wb") as f:
+        pickle.dump(parsed_data, f)
+
+
+def load_resume(input_file_path):
+    if not input_file_path.endswith(".pkl"):
+        input_file_path += ".pkl"
+    input_file = pickle.load(open(input_file_path, "rb"))
