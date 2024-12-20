@@ -27,7 +27,7 @@ st.write("Rewrite your resume based on the job description because why not")
 
 st.write("# Preprocessing")
 st.write("## Resume")
-if "parsed_object" not in st.session_state:
+if "resume_data" not in st.session_state:
     st.session_state.resume_data = None
 
 if st.session_state.resume_data is not None:
@@ -46,6 +46,7 @@ if resume_file is not None:
 
 resume_data = st.session_state.resume_data
 if resume_data is not None:
+    st.write(resume_data)
     with st.container(height=500):
         for section in resume_data["sections"]:
             if section["name"].lower() == "experience":
