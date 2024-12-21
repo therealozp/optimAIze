@@ -1,13 +1,13 @@
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 
-from process_job_description import (
+from preprocess.process_job_description import (
     extract_all_information,
     extract_high_level_responsibilites,
 )
 
-from skill_ner import get_skills
-from process_job_description import ActiveVerbRecommender
+from preprocess.skill_ner import get_skills
+from preprocess.process_job_description import ActiveVerbRecommender
 
 from pydantic import BaseModel, Field
 

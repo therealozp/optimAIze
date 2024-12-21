@@ -5,8 +5,8 @@ from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser
 
-from skill_ner import get_skills
-from latex_parser import parse_latex_resume
+from preprocess.skill_ner import get_skills
+from preprocess.latex_parser import parse_latex_resume
 import json
 
 

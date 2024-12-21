@@ -5,7 +5,7 @@ from spacy.language import Language
 from rapidfuzz import process
 import re
 
-from skill_ner import nlp
+from preprocess.skill_ner import nlp
 
 
 class DynamicSkillFilter:

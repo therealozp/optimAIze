@@ -87,11 +87,10 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 
 #### **1. make a resume "bank" for automation**
 
-1. [ ] define schema for resume metadata (e.g., position, skills, experience, and contact details).
-2. [ ] create a database or file-based storage solution for storing resumes (e.g., sqlite, json files).
-3. [ ] implement retrieval mechanism based on job description and skill requirements.
+1. [x] define schema for resume metadata (e.g., position, skills, experience, and contact details).
+2. [x] create a database or file-based storage solution for storing resumes (e.g., sqlite, json files). **this is currently using a .pkl object**
+3. [x] develop an interface to update and maintain the resume bank (e.g., add/remove resumes). **everything maintained with Streamlit right now**
 4. [ ] add ranking logic to select the most relevant resumes from the bank.
-5. [ ] develop an interface to update and maintain the resume bank (e.g., add/remove resumes).
 
 #### **2. automate bullet point rewriting pipeline**
 
@@ -106,13 +105,3 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 2. [ ] test basic LaTeX templates for compatibility with the compiler.
 3. [ ] integrate the compilation process into the pipeline.
 4. [ ] handle errors and edge cases during LaTeX compilation (e.g., missing packages, syntax errors).
-
----
-
-#### **4. work on formatting latex**
-
-1. [ ] research modern LaTeX resume templates for inspiration.
-2. [ ] define consistent formatting for sections (e.g., education, skills, experience).
-3. [ ] optimize spacing, fonts, and alignment for readability.
-4. [ ] add customization options for different job roles (e.g., developer, designer).
-5. [ ] create a library of predefined LaTeX components (e.g., bullet points, skill charts).

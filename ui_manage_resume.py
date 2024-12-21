@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 from pathlib import Path
 
-from latex_parser import parse_latex_resume
+from preprocess.latex_parser import parse_latex_resume
 
 
 # Functions
@@ -74,7 +74,8 @@ st.title("Resume Manager")
 tab1, tab2, tab3 = st.tabs(["Manage Experience", "Manage Projects", "Upload Resume"])
 resume_data = st.session_state.resume_data
 
-# Display Sections and Entries
+# tab 1 allows management of experience directly
+# through UI of the application
 with tab1:
     st.header("Manage Experience")
     section = resume_data["sections"][1]
@@ -130,6 +131,8 @@ with tab1:
             )
             st.rerun()
 
+# tab 2 allows management of projects directly.
+# similar to tab1, but for projects
 with tab2:
     section = resume_data["sections"][2]
     for entry_idx, entry in enumerate(section["entries"]):
@@ -171,6 +174,7 @@ with tab2:
             )
             st.rerun()
 
+# tab 3 allows users to bootstrap information with a resume
 with tab3:
     st.write("Upload your resume:")
     resume_file = st.file_uploader("Resume", type=["txt", "tex"])
@@ -207,5 +211,3 @@ with tab3:
                         st.write(entry["tech_stack"])
                         for bullet in entry["details"]:
                             st.write("-", bullet)
-
-# Save/Load Section
