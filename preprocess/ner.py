@@ -124,21 +124,3 @@ if __name__ == "__main__":
     job_description = "We are looking for a software engineer skilled in Python, ReactJS, and IoT applications."
     extracted_skills = ner_pipeline.process_job_description(job_description)
     print("Extracted Skills:", extracted_skills)
-
-    # # Add new skills dynamically
-    # skill_filter.update_skills(["Natural Language Processing", "Data Science"])
-    # updated_skills = ner_pipeline.process_job_description(
-    #     "Looking for expertise in NLP and Data Science."
-    # )
-    # print("Updated Extracted Skills:", updated_skills)
-
-    # # Save the updated model
-    # ner_pipeline.save_model("path/to/skill_ner_model")
-
-    # # Load the model later
-    # new_pipeline = SkillNERPipeline(skill_filter)
-    # new_pipeline.load_model("path/to/skill_ner_model")
-    # print(
-    #     "Reloaded Extracted Skills:",
-    #     new_pipeline.process_job_description(job_description),
-    # )

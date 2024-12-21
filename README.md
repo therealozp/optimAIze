@@ -2,6 +2,8 @@
 
 this project provides a robust pipeline to evaluate resume entries against job descriptions using llms. the system is designed to assess the relevancy, quality, and impact of resume entries, assigning numerical scores and determining whether each entry should be "kept" or "thrown."
 
+after that, the model will automatically select the "best" ranking ones and proceed to tailor them to the job description.
+
 ## features
 
 - evaluates resume entries based on relevancy, quality, and measurable impact.
@@ -23,42 +25,17 @@ this project provides a robust pipeline to evaluate resume entries against job d
 
 ## usage
 
-1. **prepare inputs**
+**prepare inputs**
+currently, the only supported resume format is LaTeX, which allows for the easiest processing thanks to its structured input capabilities.
 
-   - provide a structured resume entry and job description in the following format:
-     ```json
-     {
-     	"position_name": "Software Developer",
-     	"company_name": "TechCorp",
-     	"responsibilities": [
-     		"Developed web applications using React and Node.js",
-     		"Optimized backend performance by 30%"
-     	],
-     	"job_description": "Looking for a web developer with experience in React and Node.js.",
-     	"job_skills": ["React", "Node.js", "JavaScript"]
-     }
-     ```
-
-2. **run the evaluation**
-
-   - invoke the `evaluate_resume_entry` function by passing the structured resume entry and job description.
-
-3. **example output**
-   - the function will return a structured response like:
-     ```json
-     {
-     	"comments": "Highly relevant experience with measurable impact.",
-     	"evaluation": 9,
-     	"keep_or_throw": "keep"
-     }
-     ```
+functionality to process PDF files or Word files **will be added soon**, but is likely to be _less deterministic_ than latex because of its high unstructuredness.
 
 ## project structure
 
-- `main.py`: contains the pipeline implementation.
-- `requirements.txt`: lists the python dependencies.
-- `README.md`: project documentation.
-- `examples/`: sample inputs and outputs.
+- `app.py` contains all of the UI pages managed by Streamlit.
+  |-- `preprocess` folder contains all "parsing" or "extraction" functions defined
+  |-- `exec` contains everything to do with "evaluation" or "writing", etc.
+  |-- `samples` contain sample, testing data of
 
 ## customization
 

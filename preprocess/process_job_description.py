@@ -19,9 +19,10 @@ class JobDescription(BaseModel):
         description="""
         Description of all possible responsibilities of the applicant.
         
-        Look for phrases such as "you will," "your responsibilities," "expected tasks," "As an X, you will work on:" etc. In your response, include:
+        **LOOK EVERYWHERE THAT CONTAIN** phrases such as "you will," "your responsibilities," "expected tasks," "As an X, you will work on:" etc. Your response should include:
         - **Technical Responsibilities**: Tasks related to engineering, development, or any technical skills required (e.g., programming, data analysis).
         - **Impact**: What impact the applicant’s work will have (e.g., contributing to projects, improving processes, fine-tuning X, developing backend, scaling systems, etc.).
+        Be very exhaustive in your extraction. Extract all required information and you get a 1000 points bonus on top.
         """
     )
 
@@ -42,7 +43,13 @@ def extract_all_information(job_description):
 
     base = """
     You are an expert job information extractor assistant. Your task is to extract all the relevant details about the company, role responsibilities, technical requirements, verbatim from the posting. 
-    Look inside "Qualifications" sections for hints of the role responsibilities as well.
+
+    You are to scan the entire passage of information, and extract all the relevant details. Sometimes, the responsibilities are clearly stated, but sometimes, it is hidden inside the "Requirements" or "Qualifications" section. For example, if the job description mentions "Have experience with training LLMs in research and production environments," you should extract "training LLMs in research and production environments" as a responsibility.
+
+    **LOOK EVERYWHERE THAT CONTAIN** phrases such as "you will," "your responsibilities," "expected tasks," "As an X, you will work on:" etc. Your response should include:
+        - **Technical Responsibilities**: Tasks related to engineering, development, or any technical skills required (e.g., programming, data analysis).
+        - **Impact**: What impact the applicant’s work will have (e.g., contributing to projects, improving processes, fine-tuning X, developing backend, scaling systems, etc.).
+        Be very exhaustive in your extraction. Extract all required information and you get a 1000 points bonus on top.
 
     Extract exhaustively."""
 

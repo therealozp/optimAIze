@@ -33,7 +33,7 @@ if st.button("extract job information", disabled=not job_description):
     with st.spinner("Wait for it..."):
         st.session_state.job_info = extract_all_information(job_description)
         job_skills = get_skills(job_description)
-        st.session_state.job_skills = "|".join(job_skills)
+        st.session_state.job_skills = ",".join(job_skills)
 
 if st.session_state.job_info:
     job_info = st.session_state.job_info
@@ -49,12 +49,12 @@ if st.session_state.job_info:
     st.write(job_info.responsibilities_description)
 
 if st.session_state.job_info and st.button("(re)generate high-level responsibilities"):
-    st.write("Extracted high-level responsibilities")
-    with st.spinner("Wait for it..."):
-        high_level_responsibilities = extract_high_level_responsibilites(
-            job_info.responsibilities_description
-        )
-        st.session_state.hlr = high_level_responsibilities.high_level_objectives
+    # st.write("Extracted high-level responsibilities")
+    # with st.spinner("Wait for it..."):
+    #     high_level_responsibilities = extract_high_level_responsibilites(
+    #         job_info.responsibilities_description
+    #     )
+    st.session_state.hlr = st.session_state.job_info.responsibilities_description
 
 if "hlr" in st.session_state:
     hlr_value = st.text_area("High-level responsibilities", value=st.session_state.hlr)

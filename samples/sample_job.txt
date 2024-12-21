@@ -1,27 +1,40 @@
-Xometry (NASDAQ: XMTR) powers the industries of today and tomorrow by connecting the people with big ideas to the manufacturers who can bring them to life. Xometry’s digital marketplace gives manufacturers the critical resources they need to grow their business while also making it easy for buyers at Fortune 1000 companies to tap into global manufacturing capacity.
+Machine Learning Engineering Intern
+at Ontra (View all jobs)
+United States
 
-Are you a driven college student eager to make a real impact at a cutting-edge technology company? Xometry's Summer Internship Program offers a unique opportunity to gain hands-on experience and develop essential skills in the manufacturing industry.
+36%
+Resume Match
+5 of 14 keywords
+Simplify
+Simplify
+About Ontra
+Ontra is the global leader in AI legal tech for private markets. Powered by industry-leading AI, data from 1M+ contracts, and a global network of legal professionals, Ontra's private markets technology platform streamlines and optimizes critical legal and compliance workflows across the full fund lifecycle. Ontra’s purpose-built solutions automate contracts, streamline obligation management, digitize entity management, and surface insights. Trusted by more than 800 global GPs, investment banks, law firms, and advisors - including nine of the top ten PEI-ranked firms worldwide - Ontra helps firms focus on what’s important to them.
 
-As a Machine Learning Intern at Xometry, you’ll work on real-world projects that directly impact our AI-driven solutions, collaborate with experienced machine learning engineers, and learn how to build and deploy models that solve complex problems in a dynamic and fast-paced environment.
+Our Culture
+Ontra is a remote-first company that values the power of connection. We find innovative ways to stay connected, both virtually and in person. By promoting ownership, inspiring creativity, and championing collaboration, Ontra enables you to shape your impact and growth. Our commitment to innovation extends beyond our technology; it’s embedded in our culture, and AI plays a crucial role in everything we do.
 
-What You'll Do:
+Our culture is one where belonging is the cornerstone of every interaction, rooted in acceptance and respect for all. Our commitment to inclusion begins at the application process, ensuring a fair and equitable hiring experience that values the unique contributions you bring from day one.
 
-Design, build, and optimize machine learning models to enhance Xometry’s platform and business operations.
-Analyze large datasets to extract meaningful patterns and insights.
-Collaborate with cross-functional teams to integrate machine learning models into production systems.
-Learn and apply best practices in model evaluation, performance tuning, and deployment.
-Gain exposure to cutting-edge machine learning frameworks, tools, and techniques used in the manufacturing industry.
-What We Offer:
+About the Role
 
-Mentorship: Learn from experienced professionals and receive guidance from a dedicated intern captain.
-Dynamic Culture: Embrace a fast-paced, collaborative environment that values innovation and flexibility.
-Professional Development: Gain practical skills in digital marketing, social media, content marketing, and more.
-What We’re Looking For:
+Ontra is seeking multiple 2025 summer Machine Learning (ML) engineering interns in our ML team. For this job, we are currently only hiring candidates based in or willing to relocate to San Francisco, Santa Barbara, or New York City. Relocation assistance will not be provided. Interns are expected to work from their assigned office location two days per week. 
 
-Academic Excellence: Currently enrolled in an accredited college or university, graduating in December 2025 or May 2026, with a minimum 3.5 GPA.
-Strong Work Ethic: Ability to work full-time (40 hours/week) during the internship period (June 9 - August 15, 2025).
-Excellent Communication Skills: Strong verbal and written communication skills.
-Entrepreneurial Spirit: A passion for problem-solving and a desire to drive results.
-Legal Authorization: Ability to provide proof of legal right to work in the United States.
-Location Requirement: Ability to commute to our North Bethesda, MD or Lexington, KY office to work onsite for at least 3 days a week.
-Provide Unofficial Transcript 
+We’re looking for someone excited to lead innovative ML projects using GenAI and LLM models, collaborate with a knowledgeable MLE mentor and cross-functional teams, and drive product development with engineering excellence.
+
+If you are enthusiastic about Machine Learning Engineering, skilled in ML fundamentals like probability, supervised/unsupervised learning, deep learning, and natural language processing, familiar with tools such as TensorFlow and Scikit-learn, experienced in working with distributed computing systems and cloud platforms like AWS or Azure, and proficient in a modern programming language such as Python or Java, we’d love to get to know you!
+
+What You’ll Do
+
+Cross-Functional Collaboration: Engage with diverse teams like Product Management, Data Science, and App/Infra/Data/Quality Engineering to foster cohesive project development.
+Project Specifications and Design: Participate in discussions and reviews to shape technical design, ensuring alignment with project goals.
+Model Development and Deployment: Assist in developing, evaluating, and deploying ML models, followed by collecting feedback and performing model fine-tuning.
+Coding and Testing: Contribute to writing and testing code, ensuring robustness and efficiency in ML solutions.
+Mentorship and Learning: Work closely with a senior ML engineer and manager to gain insights and guidance throughout the internship experience.
+What You’ll Bring
+
+Educational Background:  You are currently enrolled in a degree-granting program at an accredited college or university and have completed at least the equivalent of 3 years of a Bachelors degree in Computer Science, Applied Mathematics, Statistics, or a related scientific field OR actively pursuing a Masters/PhD degree in one of those fields 
+Passion and Learning Agility: A quick learner with a strong interest in GenAI and Large Language Model (LLM) technology.
+Collaboration and Communication: A team player with excellent collaboration and communication skills to effectively contribute to and learn from diverse teams.
+Action-Oriented Approach: Demonstrates an action-oriented and results-driven mindset, motivated to achieve project outcomes efficiently.
+Preferred Experience: Previous internship experience in Machine Learning Engineering is preferred.
+Eligibility

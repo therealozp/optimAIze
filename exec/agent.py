@@ -170,8 +170,47 @@ class Agent:
 
 
 class EntryEvaluation(BaseModel):
+    """
+    You are an **expert recruiter** for technical roles, and your speciality is evaluating resume entries for relevance to a SPECIFIC job posting. For the resume entry and job description provided, evaluate the relevance of the resume entry. Soft skills should be temporarily ignored, and the focus should be on technical skills and experience.
+
+    The expert will score candidates using the following categories:
+    ---
+
+
+    1. **Relevance of Experience (0-5 points):**
+    - **5 points:** Direct professional experience (e.g., internships or full-time roles) in target field.
+    - **4 points:** Related technical roles or projects, but is not directly involved in the target field. However, there might be a lot of transferable skills to be picked up here e.g. machine learning engineer and AI engineer/researcher intern.
+    - **1-3 points:** General techical roles or proejcts (e.g., data science, software engineering) without clear overlap. The variance depends on the amount of transferable skills or the company name (e.g. Google, Facebook, etc.)
+    - **0 points:** No relevant experience.
+
+    2. **Technical Skills Demonstrated (0-3 points):**
+    - **3 points:** Proficiency with highly relevant tools/technologies for the role.
+    - **2 points:** Experience with broadly useful technologies (e.g., general programming skills).
+    - **1 point:** Basic technical skills with limited applicability.
+    - **0 points:** No demonstrable technical skills.
+
+    3. **Impact and Outcomes (0-2 points):**
+    - **2 points:** Clear, quantifiable results showing high impact (e.g., “Reduced downtime by 20%”).
+    - **1 points:** Demonstrates problem-solving and value without strong quantifiable metrics.
+    - **0 points:** No demonstrated outcomes.
+
+    **Total Score:** Add the scores from all categories for a score out of 10.
+
+    ---
+
+    For example, if hiring a **Site Reliability Engineer (SRE)**, focus on:
+    - **Relevant Experience:** Roles involving website maintenance, infrastructure optimization, or reliability engineering.
+    - **Technical Skills:** Tools like Kubernetes, AWS, Prometheus, scripting languages (Python, Bash, etc.).
+    - **Impact:** Quantifiable results, such as reducing downtime, improving scalability, or enhancing monitoring.
+
+
+    """
+
     comments: str = Field(
-        description="Detailed comments evaluating the relevancy, quality, and suggestions for the resume entry."
+        description="Detailed comments evaluating the relevancy, quality, and suggestions for the resume entry. Be very detailed in your comments, including: what is good about the resume entry, what could be improved, and why it is a good or bad match for the job posting."
+    )
+    suggestions: str = Field(
+        description="Specific suggestions for improving the resume entry, strictly the entry itself. Include any changes that could be made to make the resume entry a better match for the job posting, not general advice for the candidate or resume as a whole."
     )
     evaluation: int = Field(
         description="Numerical evaluation of the resume entry on a scale of 1 to 10, with 10 being a perfect fit."
@@ -183,16 +222,37 @@ class EntryEvaluation(BaseModel):
 
 def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False):
     base = """
-        You are an expert resume evaluator who evaluates resume entries for relevance to a job posting. For the resume entry and job description provided:
-        
-        Evaluate the relevance of the resume entry. Does the resume entry contain a lot of relevant experience that matches or transfer well to the type of work described inside the job posting? 
-        
-        For example, if the job posting is for a Site Reliability Engineer:
-         - a stellar entry (10/10) would be direct professional experience in the field, such as an internship or similar that has directly involved maintaining or creating websites.
-         - a less stellar entry (9/10) would be an internship that does not have to be related to web development, but not directly involved in the field; such as a Machine Learning position, or a Data Science position.
-         - a good entry (7-9/10) is a high-quality position/project that has quantifiable metrics, solves a particular problem, and demonstrates technical skill. If the project utilizes relevant technologies, warrants an 8-9. If not so relevant, warrants a 7-8.
-         - an "okay" match (4-6/10) would contain only a simplistic programming project, with minimal effort.
-         - a bad match (0-4/10) would contain no relevant programming work at all.
+        You are an **expert recruiter** for technical roles, and your speciality is evaluating resume entries for relevance to a SPECIFIC job posting. For the resume entry and job description provided, evaluate the relevance of the resume entry. Soft skills should be temporarily ignored, and the focus should be on technical skills and experience.
+
+        The expert will score candidates using the following categories:
+        ---
+
+
+        1. **Relevance of Experience (0-5 points):**
+        - **5 points:** Direct professional experience (e.g., internships or full-time roles) in target field.
+        - **4 points:** Related technical roles or projects, but is not directly involved in the target field. However, there might be a lot of transferable skills to be picked up here e.g. machine learning engineer and AI engineer/researcher intern.
+        - **1-3 points:** General techical roles or proejcts (e.g., data science, software engineering) without clear overlap. The variance depends on the amount of transferable skills or the company name (e.g. Google, Facebook, etc.)
+        - **0 points:** No relevant experience.
+
+        2. **Technical Skills Demonstrated (0-3 points):**
+        - **3 points:** Proficiency with highly relevant tools/technologies for the role.
+        - **2 points:** Experience with broadly useful technologies (e.g., general programming skills).
+        - **1 point:** Basic technical skills with limited applicability.
+        - **0 points:** No demonstrable technical skills.
+
+        3. **Impact and Outcomes (0-2 points):**
+        - **2 points:** Clear, quantifiable results showing high impact (e.g., “Reduced downtime by 20%”).
+        - **1 points:** Demonstrates problem-solving and value without strong quantifiable metrics.
+        - **0 points:** No demonstrated outcomes.
+
+        **Total Score:** Add the scores from all categories for a score out of 10.
+
+        ---
+
+        For example, if hiring a **Site Reliability Engineer (SRE)**, focus on:
+        - **Relevant Experience:** Roles involving website maintenance, infrastructure optimization, or reliability engineering.
+        - **Technical Skills:** Tools like Kubernetes, AWS, Prometheus, scripting languages (Python, Bash, etc.).
+        - **Impact:** Quantifiable results, such as reducing downtime, improving scalability, or enhancing monitoring.
         """
 
     llm = ChatOllama(
