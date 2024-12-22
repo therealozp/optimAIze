@@ -49,8 +49,6 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 4. push the branch (`git push origin feature-name`).
 5. open a pull request.
 
-## **TODO List**
-
 ### **Completed Tasks**
 
 - [x] parse job information
@@ -72,9 +70,15 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 #### **2. automate bullet point rewriting pipeline**
 
 1. [x] design prompt templates for rewriting resume bullets based on job description and requirements.
-2. [ ] integrate rewriting functionality with the ollama model for refinement.
+2. [x] integrate rewriting functionality with the ollama model for refinement.
 3. [x] define quality checks to ensure rewritten bullets are concise, impactful, and measurable.
 4. [ ] build a feedback loop for iterative improvement of rewritten bullets.
+
+EXTRAS
+
+- [ ] define character/word limits to avoid overwriting
+- [ ] implement better non-redundancy check between bullet points
+- [ ] figure out a better way of handling rewrites + few-shot prompting (THERE IS ONE BULLET THAT REFUSES TO REWRITE FOR SOME REASON)
 
 #### **3. integrate pdfLatex compiler**
 
