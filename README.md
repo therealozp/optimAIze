@@ -67,7 +67,7 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 1. [x] define schema for resume metadata (e.g., position, skills, experience, and contact details).
 2. [x] create a database or file-based storage solution for storing resumes (e.g., sqlite, json files). **this is currently using a .pkl object**
 3. [x] develop an interface to update and maintain the resume bank (e.g., add/remove resumes). **everything maintained with Streamlit right now**
-4. [ ] add ranking logic to select the most relevant resumes from the bank.
+4. [x] add ranking logic to select the most relevant resumes from the bank.
 
 #### **2. automate bullet point rewriting pipeline**
 
