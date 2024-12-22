@@ -71,9 +71,9 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 
 #### **2. automate bullet point rewriting pipeline**
 
-1. [ ] design prompt templates for rewriting resume bullets based on job description and requirements.
+1. [x] design prompt templates for rewriting resume bullets based on job description and requirements.
 2. [ ] integrate rewriting functionality with the ollama model for refinement.
-3. [ ] define quality checks to ensure rewritten bullets are concise, impactful, and measurable.
+3. [x] define quality checks to ensure rewritten bullets are concise, impactful, and measurable.
 4. [ ] build a feedback loop for iterative improvement of rewritten bullets.
 
 #### **3. integrate pdfLatex compiler**

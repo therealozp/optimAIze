@@ -1,7 +1,7 @@
 import streamlit as st
 
-from exec.agent import evaluate_resume_entry
-from exec.rank_entries import rank_experiences, max_score_combination, get_final_score
+from exec.evaluate_entries import evaluate_resume_entry
+from exec.rank_entries import max_score_combination, get_final_score
 
 resume_data = st.session_state.resume_data
 job_skills = st.session_state.job_skills
@@ -34,29 +34,34 @@ if st.button("Evaluate bullets"):
                     st.write("### Entry:", entry["project_name"])
 
                 st.write(entry)
+                retries = 0
+                model_response = None
+                while model_response is None and retries <= 3:
+                    try:
+                        model_response = evaluate_resume_entry(
+                            entry,
+                            job_description=st.session_state.hlr,
+                            job_skills=", ".join(job_skills),
+                            project_mode=(section["name"].lower() == "projects"),
+                        )
+                    except Exception as e:
+                        st.write(f"An error occurred: {e}. Retrying {retries} times...")
+                        retries += 1
+                        continue
+                    finally:
 
-                model_response = evaluate_resume_entry(
-                    entry,
-                    job_description=st.session_state.hlr,
-                    job_skills=", ".join(job_skills),
-                    project_mode=(section["name"].lower() == "projects"),
-                )
+                        if not model_response:
+                            retries += 1
+                            st.write(
+                                f"Model did not produce any output. Retrying {retries} times..."
+                            )
+                            continue
+                        else:
+                            break
 
-                retries = 1
-                while not model_response:
-                    st.write(
-                        f"Model did not produce any output. Retrying {retries} times..."
-                    )
-                    model_response = evaluate_resume_entry(
-                        entry,
-                        job_description=st.session_state.hlr,
-                        job_skills=", ".join(job_skills),
-                        project_mode=(section["name"].lower() == "projects"),
-                    )
-                    retries += 1
-                    if retries > 3:
-                        st.write("Failed to get a response after 3 retries.")
-                        break
+                if retries > 3:
+                    st.write("Failed to get a response after 3 retries.")
+                    raise Exception("Model did not produce any output.")
 
                 st.write("Comments:", model_response.comments)
                 st.write("Suggestions:", model_response.suggestions)
@@ -64,7 +69,6 @@ if st.button("Evaluate bullets"):
                 st.write("Technical score:", model_response.technical_score)
                 st.write("Impact score:", model_response.impact_score)
                 st.write("Final score:", get_final_score(model_response))
-                st.write("Final verdict:", model_response.keep_or_throw)
 
                 if section["name"].lower() == "experience":
                     st.session_state.exp_evals.append((entry, model_response))
@@ -85,6 +89,7 @@ if st.button("Evaluate bullets"):
         max_combos = max_score_combination(
             st.session_state.exp_evals, st.session_state.proj_evals
         )
+        st.session_state.optimal_combination = max_combos
         st.write("The following entries are recommended:")
         print()
         for exp, eval_ in max_combos:

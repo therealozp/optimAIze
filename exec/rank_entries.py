@@ -91,7 +91,7 @@ def max_score_combination(
     experiences,
     projects,
     min_total: int = 4,  # Minimum total entries needed
-    max_total: int = 5,  # Maximum total entries allowed
+    max_total: int = 6,  # Maximum total entries allowed
     min_exp: int = 2,
     min_proj: int = 1,
 ):

@@ -1,7 +1,6 @@
 Led a team of 5 in designing a tailored AR business integration solution with Next.js and Three.js
 Secured a $1,000 sponsorship for LabJack data acquisition equipment, enabling real-time wireless telemetry capabilities.
 Optimized C++ math library, boosting processing speed by 230% while ensuring code safety for high-performance computing.
-Created interactive visualizations for graphs, trees, and various data structures with react-force-graph and Vite.
 Optimized animation performance for Dijkstra’s algorithm and A* pathfinding using memoization and batch updates, achieving a 120% reduction in rendering latency (+20% average frames per second, -30ms average time to render).
 Optimized embedding storage in PostgreSQL using ChromaDB references, resulting in a 90% increase in retrieval speed.
 Developed a scalable Fast API backend to support high-volume image and text processing with Ada-002 embeddings and LangChain, resulting in 15% increases in accurate content identification.
@@ -10,9 +9,6 @@ Improved performance of stock selection algorithm based on CAPM by introducing m
 Wrote fully functional backtesting program with Python to implement statistical arbitrage strategies of Treasury bond futures based on residual deviation signal
 Used moving average and Kalman filter to better fit time-varying strategy parameters, which significantly improved strategy performance in most cases
 Optimized program by restricting data structure to pure numpy array and using vectorization heavily; improved average running speed of backtesting program 22-fold
-Raspberry Pi scripting to dynamically display lab updates and highlights, saving the lab up to $3000.
-Spearheading the development of an automated booking system for laser cutting machines and 3D printers, aimed at streamlining the reservation process.
-Applied SDLC best practices and machine learning research to improve predictive accuracy by 15% and reduce data processing time, while enhancing software reliability, leading to a 20% increase in adherence rate.
 Architected and deployed a Kafka-driven pipeline to stream finance reports, achieving a 15% reduction in costs.
 Engineered Spring Boot batch applications to integrate AWS cloud systems with on-premise COTS platforms.
 Developed and optimized Python script with parallel processing to migrate over 2.5 million mainframe records to SQL Server, reducing mainframe usage costs and saving approximately $100K annually.
