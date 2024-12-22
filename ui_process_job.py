@@ -2,7 +2,6 @@ import streamlit as st
 
 from preprocess.process_job_description import (
     extract_all_information,
-    extract_high_level_responsibilites,
 )
 
 from preprocess.skill_ner import get_skills

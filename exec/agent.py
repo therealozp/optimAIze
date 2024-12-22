@@ -10,6 +10,7 @@ from preprocess.skill_ner import get_skills
 from preprocess.process_job_description import ActiveVerbRecommender
 
 from pydantic import BaseModel, Field
+from typing import Optional
 
 
 class Agent:
@@ -171,67 +172,78 @@ class Agent:
 
 class EntryEvaluation(BaseModel):
     """
-    You are an **expert recruiter** for technical roles, and your speciality is evaluating resume entries for relevance to a SPECIFIC job posting. For the resume entry and job description provided, evaluate the relevance of the resume entry. Soft skills should be temporarily ignored, and the focus should be on technical skills and experience.
+    Represents the evaluation of a resume entry by an expert recruiter for technical roles.
 
-    The expert will score candidates using the following categories:
-    ---
+    This class is designed to assess the relevance of a resume entry in relation to a specific job posting.
+    The evaluation focuses on technical skills and experience, temporarily ignoring soft skills.
+    The expert will score candidates based on three main categories: relevance of experience, technical skills demonstrated,
+    and impact and outcomes. Each category has a defined scoring range, allowing for a total score out of 10.
 
-
-    1. **Relevance of Experience (0-5 points):**
-    - **5 points:** Direct professional experience (e.g., internships or full-time roles) in target field.
-    - **4 points:** Related technical roles or projects, but is not directly involved in the target field. However, there might be a lot of transferable skills to be picked up here e.g. machine learning engineer and AI engineer/researcher intern.
-    - **1-3 points:** General techical roles or proejcts (e.g., data science, software engineering) without clear overlap. The variance depends on the amount of transferable skills or the company name (e.g. Google, Facebook, etc.)
-    - **0 points:** No relevant experience.
-
-    2. **Technical Skills Demonstrated (0-3 points):**
-    - **3 points:** Proficiency with highly relevant tools/technologies for the role.
-    - **2 points:** Experience with broadly useful technologies (e.g., general programming skills).
-    - **1 point:** Basic technical skills with limited applicability.
-    - **0 points:** No demonstrable technical skills.
-
-    3. **Impact and Outcomes (0-2 points):**
-    - **2 points:** Clear, quantifiable results showing high impact (e.g., “Reduced downtime by 20%”).
-    - **1 points:** Demonstrates problem-solving and value without strong quantifiable metrics.
-    - **0 points:** No demonstrated outcomes.
-
-    **Total Score:** Add the scores from all categories for a score out of 10.
-
-    ---
-
-    For example, if hiring a **Site Reliability Engineer (SRE)**, focus on:
-    - **Relevant Experience:** Roles involving website maintenance, infrastructure optimization, or reliability engineering.
-    - **Technical Skills:** Tools like Kubernetes, AWS, Prometheus, scripting languages (Python, Bash, etc.).
-    - **Impact:** Quantifiable results, such as reducing downtime, improving scalability, or enhancing monitoring.
-
-
+    The evaluation process is crucial for ensuring that candidates are matched effectively with job requirements,
+    thereby enhancing the recruitment process for technical roles.
     """
 
     comments: str = Field(
-        description="Detailed comments evaluating the relevancy, quality, and suggestions for the resume entry. Be very detailed in your comments, including: what is good about the resume entry, what could be improved, and why it is a good or bad match for the job posting."
+        description="Detailed comments evaluating the relevance, quality, and suggestions for the resume entry. "
+        "Include specific strengths and weaknesses of the entry, along with actionable feedback "
+        "on how the candidate can improve their resume to better align with the job posting."
     )
-    suggestions: str = Field(
-        description="Specific suggestions for improving the resume entry, strictly the entry itself. Include any changes that could be made to make the resume entry a better match for the job posting, not general advice for the candidate or resume as a whole."
+
+    suggestions: Optional[str] = Field(
+        description="Specific suggestions for improving the resume entry itself. "
+        "Focus on concrete changes that could enhance the match with the job posting, "
+        "rather than general advice applicable to all resumes."
     )
-    evaluation: int = Field(
-        description="Numerical evaluation of the resume entry on a scale of 1 to 10, with 10 being a perfect fit."
+
+    relevance_score: int = Field(
+        description="""Numerical evaluation (0-5 points) of how relevant the resume entry is to the job posting. 
+        A higher score indicates a closer alignment with the required experience for the role, 
+        based on the following criteria:
+        - 5 points: Direct professional experience in the target field.
+        - 4 points: Related technical roles or projects with transferable skills.
+        - 1-3 points: General technical roles or projects with limited overlap.
+        - 0 points: No relevant experience.
+        """
     )
+
+    technical_score: int = Field(
+        description="""Numerical evaluation (0-3 points) of the technical skills demonstrated in the resume entry. 
+        This score reflects the candidate's proficiency with relevant tools and technologies, 
+        categorized as follows:
+        - 3 points: Proficiency with highly relevant tools/technologies.
+        - 2 points: Experience with broadly useful technologies.
+        - 1 point: Basic technical skills with limited applicability.
+        - 0 points: No demonstrable technical skills.
+        """
+    )
+
+    impact_score: int = Field(
+        description="""Numerical evaluation (0-2 points) of the impact and outcomes demonstrated in the resume entry. 
+        This score assesses the candidate's ability to deliver quantifiable results, with the following criteria:
+        - 2 points: Clear, quantifiable results showing high impact.
+        - 1 point: Demonstrates problem-solving and value without strong metrics.
+        - 0 points: No demonstrated outcomes.
+        """
+    )
+
     keep_or_throw: str = Field(
-        description='Decision on the resume entry: "keep" if it is worth retaining or "throw" if it should be discarded.'
+        description='Decision on the resume entry: "keep" if it is worth retaining for further consideration, '
+        '"throw" if it should be discarded based on the evaluation.'
     )
 
 
 def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False):
     base = """
-        You are an **expert recruiter** for technical roles, and your speciality is evaluating resume entries for relevance to a SPECIFIC job posting. For the resume entry and job description provided, evaluate the relevance of the resume entry. Soft skills should be temporarily ignored, and the focus should be on technical skills and experience.
+        You are an **expert recruiter specializing in technical roles**, with a focus on evaluating resume entries for their relevance to specific job postings. Your task is to score and provide feedback on the provided resume entry. Ignore soft skills and prioritize technical skills, experience, and demonstrated impact. Be very strict with your evaluation, focusing on the candidate's ability to meet the requirements of the job posting.
 
-        The expert will score candidates using the following categories:
-        ---
-
+        Score candidates using the following categories:
 
         1. **Relevance of Experience (0-5 points):**
-        - **5 points:** Direct professional experience (e.g., internships or full-time roles) in target field.
-        - **4 points:** Related technical roles or projects, but is not directly involved in the target field. However, there might be a lot of transferable skills to be picked up here e.g. machine learning engineer and AI engineer/researcher intern.
-        - **1-3 points:** General techical roles or proejcts (e.g., data science, software engineering) without clear overlap. The variance depends on the amount of transferable skills or the company name (e.g. Google, Facebook, etc.)
+               **Relevance of Experience (0-5 points):**
+        - **5 points:** Directly-related professional experience, such as intern, internships, or full-time roles in target field.
+        - **4 points:** Related technical roles or projects, but is not directly involved in the target field. However, there might be a lot of transferable skills to be picked up here e.g. there is a lot of relevance between machine learning engineer and AI engineer/researcher intern.
+        - **3 points**: Technical roles or projects that have little relevance in the target field, e.g. target field machine learning engineer and resume entry web developer.
+        - **1-2 points:** General roles or projects that has little overlap. The variance depends on the amount of transferable skills, or the impressiveness/scale of the project, or role.
         - **0 points:** No relevant experience.
 
         2. **Technical Skills Demonstrated (0-3 points):**
@@ -246,13 +258,6 @@ def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False
         - **0 points:** No demonstrated outcomes.
 
         **Total Score:** Add the scores from all categories for a score out of 10.
-
-        ---
-
-        For example, if hiring a **Site Reliability Engineer (SRE)**, focus on:
-        - **Relevant Experience:** Roles involving website maintenance, infrastructure optimization, or reliability engineering.
-        - **Technical Skills:** Tools like Kubernetes, AWS, Prometheus, scripting languages (Python, Bash, etc.).
-        - **Impact:** Quantifiable results, such as reducing downtime, improving scalability, or enhancing monitoring.
         """
 
     llm = ChatOllama(
@@ -260,6 +265,8 @@ def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False
     ).with_structured_output(EntryEvaluation)
 
     message_exp = """
+        Evaluate the following experience entry for relevance to the job description. If a certain skill or field is not mentioned.
+
         <RESUME ENTRY>
         Position: {position_name}
         Company: {company_name}
@@ -275,6 +282,8 @@ def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False
     """
 
     message_project = """
+        Evaluate the following project entry for relevance to the job description:
+
         <RESUME ENTRY>
         Project: {project_name}
         Details:
@@ -289,6 +298,7 @@ def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False
         {skills}
         </JOB DESCRIPTION>
     """
+
     message = message_project if project_mode else message_exp
     prompt = ChatPromptTemplate.from_messages([("system", base), ("human", message)])
 
@@ -312,7 +322,7 @@ def evaluate_resume_entry(entry, job_description, job_skills, project_mode=False
             {
                 "position_name": entry["position_name"],
                 "company_name": entry["company_name"],
-                "responsibilities": "\n".join(entry["responsibilities"]),
+                "responsibilities": ";".join(entry["responsibilities"]),
                 "job_description": job_description,
                 "skills": job_skills,
             }
