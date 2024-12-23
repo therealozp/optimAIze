@@ -2,6 +2,7 @@ import streamlit as st
 
 from preprocess.process_job_description import (
     extract_all_information,
+    extract_high_level_responsibilites,
 )
 
 from preprocess.skill_ner import get_skills
@@ -48,11 +49,11 @@ if st.session_state.job_info:
     st.write(job_info.responsibilities_description)
 
 if st.session_state.job_info and st.button("(re)generate high-level responsibilities"):
-    # st.write("Extracted high-level responsibilities")
-    # with st.spinner("Wait for it..."):
-    #     high_level_responsibilities = extract_high_level_responsibilites(
-    #         job_info.responsibilities_description
-    #     )
+    st.write("Extracted high-level responsibilities")
+    with st.spinner("Wait for it..."):
+        high_level_responsibilities = extract_high_level_responsibilites(
+            job_info.responsibilities_description
+        )
     st.session_state.hlr = st.session_state.job_info.responsibilities_description
 
 if "hlr" in st.session_state:

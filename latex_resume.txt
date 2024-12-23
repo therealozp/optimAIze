@@ -155,12 +155,12 @@
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {AI Researcher/Engineer Intern}{Kyanon Digital}
+      {AI Intern}{Kyanon Digital}
       {Vietnam}{May -- August 2024}
       \resumeItemListStart
-        \resumeItem{Enhanced customer profiling accuracy \textbf{by 22\%} by applying transformer-based embedding models to transaction data.}
+        \resumeItem{Enhanced customer profiling accuracy \textbf{by 22\%} by applying transformer-based embedding models to transaction data, enabling more effective segmentation and driving a \textbf{15\% increase in campaign ROI}.}
         \resumeItem{Designed PoC to solve cold-start and knowledge transfer challenges in recommender systems, increasing baseline XGBoost accuracy \textbf{by 10\%}, leading to improved targeting for personalized marketing campaigns.}
-        \resumeItem{Delivered tabular learning proposal using \textbf{PyTorch} and \textbf{HuggingFace}, enhancing model deployment with \textbf{Docker} and \textbf{Streamlit} for user-friendly ML applications.}
+        \resumeItem{Proposed and implemented a tabular learning framework with \textbf{PyTorch} and \textbf{HuggingFace}, streamlining model deployment with \textbf{Docker} and \textbf{Streamlit}, reducing deployment time by \textbf{30\%}.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -168,18 +168,17 @@
       % {Lab Assistant}{RANCS (Resilient, Autonomous, Networked Control Systems) Lab}{Tampa}{October 2023 -- Present}
       
       \resumeItemListStart
-        \resumeItem{Collaborated on autonomous vehicle engineering, integrating \textbf{lidars, radars, cameras}, and controllers for sensor fusion.}
-        \resumeItem{Developed C++ SDK and network socket libraries for Cohda on-board units, enabling custom data packet transmission.}
-        \resumeItem{Programmed firmware for GNSS (GPS) devices, ensuring high-accuracy data for an FDOT autonomous bus project.}
+        % \resumeItem{Collaborated on autonomous vehicle engineering, integrating lidars, radars, cameras, and controllers for sensor fusion.}
+        \resumeItem{Developed C++ SDK and network socket libraries for Cohda on-board units, \textbf{reducing data transmission latency by 20\%} and supporting custom packet delivery for high-speed communication.}
+        \resumeItem{Programmed firmware for GNSS (GPS) devices, delivering high-accuracy data (sub-\textbf{10 cm precision}) for the FDOT autonomous bus project.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Full-stack Developer}{Augmented Reality Integration Solutions (ARIS)}
-      {Remote}{June 2023 -- Present}
+      {Remote}{June 2023 -- October 2024}
       \resumeItemListStart
-        \resumeItem{Led team of 5 developers in designing a tailored AR business integration solution with \textbf{Next.JS and Three.JS}.}
-        \resumeItem{Optimized editor responsiveness \textbf{by 60\%} through local storage caching and batching server update operations.}
-        \resumeItem{Built a scalable backend with \textbf{MongoDB} and \textbf{S3}, integrating \textbf{NextAuth-JWT}  for user authentication.}
+        \resumeItem{Led team of 5 developers in designing a production-ready AR integration solution with \textbf{Next.JS} and \textbf{Three.JS}.}
+        \resumeItem{Reduced editor response time \textbf{from 6 to 0.5 seconds}, boosting user satisfaction reports by 25\% (MongoDB, AWS S3).}
         \resumeItem{Completed MVP in 4 months, earning \textbf{first-place funding} at a tech conference of \textbf{1,000+ industry experts}.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
@@ -190,14 +189,14 @@
       \resumeProjectHeading
           {the last data structures visualizer you will ever need}{Vite, Chakra-UI}{January 2024}
           \resumeItemListStart
-            \resumeItem{Created interactive visualizations for graphs, trees, and various data structures with react-force-graph and Vite.}
+            \resumeItem{Developed interactive, real-time visualizations for graphs, trees, and algorithms using \textbf{force graphs} and \textbf{React}.}
             \resumeItem{Optimized animation performance for Dijkstra's algorithm and A* pathfinding using memoization and batch updates, achieving \textbf{120\% reduction} in rendering latency (\textbf{+20\% average frames} per second, \textbf{-30ms average time} to render).}
           \resumeItemListEnd
       \resumeProjectHeading
           {LegAI}{NextJS, FastAPI, Python, PostgreSQL, ChromaDB}{October 2023}
           \resumeItemListStart
-            \resumeItem{Optimized embedding storage in PostgreSQL using ChromaDB references, resulting in a \textbf{90\% increase} in retrieval}
-            \resumeItem{Developed a scalable Fast API backend to support high-volume image and text processing with \textbf{Ada-002 text embeddings} and \textbf{LangChain}, resulting in \textbf{15\% increase}s in accurate content identification.}
+            \resumeItem{Optimized embedding storage in PostgreSQL using ChromaDB references, resulting in \textbf{90\% increase} in retrieval speeds.}
+            \resumeItem{Developed a scalable Fast API backend to support high-volume image and text processing with \textbf{Ada-002 text embeddings} and \textbf{LangChain}, resulting in \textbf{15\% accuracy increase} in content identification.}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -210,7 +209,7 @@
       {Tampa}{January 2024 -- Present}
       \resumeItemListStart
         \resumeItem{Secured \textbf{\$1,000 sponsorship} for LabJack data acquisition equipment, enabling real-time wireless telemetry capabilities.}
-        \resumeItem{Optimized C++ custom high-performance computing math library, \textbf{boosting processing speed by 230\%} while ensuring code safety.}
+        \resumeItem{Optimized C++ custom high-performance computing math library, \textbf{boosting processing speed by 230\%}.}
       \resumeItemListEnd
     \resumeSubHeadingListEnd
     

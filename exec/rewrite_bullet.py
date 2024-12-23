@@ -6,15 +6,16 @@ from pydantic import BaseModel, Field
 class ResumeBullet(BaseModel):
     """
     Represents a resume bullet point. Should always follow the following criteria:
-    - Be straightforward. Own the bullet point. No unnecessarily wordy statements.
-    - Quantify and qualify achievements wherever possible. Use metrics, numbers, results to elaborate on impact.
-    - Ensure readability. Use action verbs and concise language.
     - The bullet point is authentic, engaging, and tailored to the provided job description.
-    - No statements that are cliche or overly generic.
+    - Be straightforward. Own the bullet point.
+    - No generic or cliche statements.
+    - The "technical how" should be concise. Should not cause any run-on sentences/bullet points.
+    - Quantify and qualify achievements wherever possible, using metrics, numbers, and tangible results.
+    - Ensure readability. Use action verbs and concise language.
     """
 
     rewritten_bullet: str = Field(
-        description="The rewritten bullet point that has been optimized for impact, clarity, and relevance to the specific job description."
+        description="The rewritten bullet point that has been optimized for impact, clarity, and relevance."
     )
 
 
@@ -86,9 +87,9 @@ class ImprovementPlan(BaseModel):
     )
 
 
-def generate_improvement_plan(bullet):
+def generate_improvement_plan(bullet, entry):
     """
-    Generate an improvement plan for the bullet point.
+    Generate an improvement plan for the bullet point. Takes the bullet, and the entry for context
     """
     llm = ChatOllama(
         model="llama3.2", num_ctx=4096, temperature=0.2
@@ -100,11 +101,10 @@ def generate_improvement_plan(bullet):
                 "You are an assistant providing improvement plans for resume bullet points."
                 "a good bullet point should have the following criteria:"
                 """
-                - Be straightforward. Own the bullet point. No unnecessarily wordy statements.
-                - No statements that are generic and cliche.
-                - Everything should be clear. No vague and generic language.
-                - Quantify and qualify achievements wherever possible. 
-                - Use metrics, numbers, results to elaborate on impact.
+                - Be straightforward. Own the bullet point.
+                - No generic or cliche statements.
+                - The "technical how" should be concise. Should not cause any run-on sentences/bullet points.
+                - Quantify and qualify achievements wherever possible, using metrics, numbers, and tangible results.
                 - The bullet point is authentic, engaging, and tailored to the provided job description.
                 - Ensure readability. Use action verbs and concise language.
                 """,
@@ -137,6 +137,21 @@ class ResumeRewriter:
         ).with_structured_output(ResumeBullet)
         self.job_description = job_description
         self.bullet_samples = load_bullet_samples()
+        self.chat_history = [
+            (
+                "system",
+                """You are an assistant specializing in optimizing resume bullet points for maximum impact and technical clarity. Consider the fit of the bullet point to the job description. Does it exhibit the core competencies demanded by the nature of the job? IGNORE SOFT SKILLS. DO NOT COPY FROM JOB DESCRIPTION.
+
+Guidelines to writing a good bullet point:
+- The bullet point and tailored to the provided job description.
+- The "technical how" should be concise, not extremely verbose.
+- Quantify and qualify achievements wherever possible, using metrics, numbers, and tangible results.
+- No generic or cliche statements.
+- Be straightforward. Own the bullet point.
+- Ensure readability. Use action verbs and concise language.
+                """,
+            )
+        ]
 
     def rewrite_bullet(self, entry, bullet):
         """
@@ -147,12 +162,6 @@ class ResumeRewriter:
             resp = entry["responsibilities"]
         else:
             resp = entry["details"]
-
-        posn = None
-        if "position_name" in entry:
-            posn = entry["position_name"]
-        else:
-            posn = entry["project_name"]
 
         if check_needs_rewrite(bullet, self.job_description, resp):
             return self.rewrite_no_check(entry, bullet)
@@ -172,14 +181,26 @@ class ResumeRewriter:
         else:
             posn = entry["project_name"]
 
-        improvement_plan = generate_improvement_plan(bullet)
         rewriting_prompt = """
-        Rewrite the bullet point below, incorporating the following improvements:
+        Q: Built a custom pipeline for real-time data processing, using Kafka and Spark, which made the data ingestion faster.
+        A: Developed a custom data pipeline for real-time data processing with Kafka and Spark, enabling 10x faster data ingestion and processing.
 
-        <IMPROVEMENT PLAN>
-        {improvement_plan}
-        </IMPROVEMENT PLAN>
+        Q: Improved the algorithm used to select stocks by making it more efficient and boosting performance.
+        A: Improved performance of stock selection algorithm based on CAPM by introducing mixed integer programming, increasing Sharpe ratio by 6% and reducing drawdown by 5%.
 
+        Q: Created a backtesting tool for Treasury bond strategies, implementing it in Python.
+        A: Wrote fully functional backtesting program with Python to implement statistical arbitrage strategies of Treasury bond futures based on residual deviation signal.
+
+        Q: Applied moving averages and Kalman filters to strategy parameters to improve outcomes.
+        A: Used moving average and Kalman filter to better fit time-varying strategy parameters, which significantly improved strategy performance in most cases.
+
+        Q: Changed the program structure to use numpy arrays and vectorization, making it run much faster.
+        A: Optimized program by restricting data structure to pure numpy array and using vectorization heavily; improved average running speed of backtesting program 22-fold
+
+        Q: Designed a Kafka-based system for streaming reports, reducing costs slightly.
+        A: Architected and deployed a Kafka-driven pipeline to stream finance reports, achieving a 15% reduction in costs.
+
+        Q: Rewrite the bullet point below to better tailor it to the job description:
         <BULLET TO REWRITE>
         {bullet}
         </BULLET TO REWRITE>
@@ -187,57 +208,23 @@ class ResumeRewriter:
         <JOB DESCRIPTION>
         {job_description}
         </JOB DESCRIPTION>
-
-        Resume entry for context. For reference, if other bullets have contained important information, DO NOT include them in your rewrite. There should be 0 redundancies.
-        Position: {position_name}
-        Responsibilities:
-        {responsibilities}
-
-        Reference good bullet samples that fulfill these criteria:
-        {bullet_samples}
+        
+        A: 
         """
 
         prompt = ChatPromptTemplate.from_messages(
-            [
-                (
-                    "system",
-                    """
-                    You are an assistant specializing in optimizing resume bullet points for maximum impact and technical clarity. For each bullet point provided, iterate through these steps:
-
-                    1. Evaluate the bullet point for impact, clarity, and relevance.
-                    2. Enumerate improvements you plan to make to the bullet point.
-                    3. Deliver the final rewritten bullet point
-
-                    When a bullet point is rewritten, ensure the following criteria:
-                    - Be straightforward. Own the bullet point. No unnecessarily wordy statements.
-                    - No statements that are generic and cliche.
-                    - Everything should be clear. No vague or generic language.
-                    - Quantify and qualify achievements wherever possible. 
-                    - Use metrics, numbers, results to elaborate on impact.
-                    - The bullet point is authentic, engaging, and tailored to the provided job description.
-                    - Ensure readability. Use action verbs and concise language.
-                    """,
-                ),
-                ("human", rewriting_prompt),
-            ]
+            self.chat_history + [("human", rewriting_prompt)]
         )
 
         chain = prompt | self.llm
-        print(bullet)
-        print(improvement_plan.improvements)
-        print(self.job_description)
-        print(posn)
-        print(";".join(resp))
 
         response = chain.invoke(
             {
                 "bullet": bullet,
-                "improvement_plan": improvement_plan.improvements,
                 "job_description": self.job_description,
-                "bullet_samples": self.bullet_samples,
-                "position_name": posn,
-                "responsibilities": ";".join(resp),
             }
         )
 
-        return True, response
+        if not response or not response.rewritten_bullet:
+            raise Exception("Model did not produce any output.")
+        return True, response.rewritten_bullet

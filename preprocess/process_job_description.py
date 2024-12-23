@@ -49,7 +49,7 @@ def extract_all_information(job_description):
     **LOOK EVERYWHERE THAT CONTAIN** phrases such as "you will," "your responsibilities," "expected tasks," "As an X, you will work on:" etc. Your response should include:
         - **Technical Responsibilities**: Tasks related to engineering, development, or any technical skills required (e.g., programming, data analysis).
         - **Impact**: What impact the applicant’s work will have (e.g., contributing to projects, improving processes, fine-tuning X, developing backend, scaling systems, etc.).
-        Be very exhaustive in your extraction. Extract all required information and you get a 1000 points bonus on top.
+        Be very exhaustive in your extraction. Extract all required information and you get a 1000 points bonus on top of your existing 100 point reward.
 
     Extract exhaustively."""
 

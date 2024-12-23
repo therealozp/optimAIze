@@ -4,6 +4,17 @@ this project provides a robust pipeline to evaluate resume entries against job d
 
 after that, the model will automatically select the "best" ranking ones and proceed to tailor them to the job description.
 
+## DISCLAIMER
+
+as of this point, the "prompting" nature of resumes are very... subjective. therefore, it would be impossible to continue down this path until I am able to figure out a better way to prompt it properly and avoid it copying verbatim from the job description.
+
+**ISSUES**:
+
+- prompting it to follow job description too "subtly" will lead to it disregarding the JD altogether.
+- prompting it to follow JD explicitly will cause it to follow JD **to the letter**, to the point of copying items from the JD to put it inside each bullet point. **that makes a horrible resume**.
+- this does **not** consider length. it keeps rambling on and on and on. to fix this, some sort of token limiter must be implemented.
+- still, with all the prompting, it does **occasionally** write decent bullet points. therefore, some sort of RLHF should be integrated if I even want to have the hope of making this better.
+
 ## features
 
 - evaluates resume entries based on relevancy, quality, and measurable impact.
@@ -77,8 +88,8 @@ you can extend or modify the evaluation criteria by editing the prompt in `evalu
 EXTRAS
 
 - [ ] define character/word limits to avoid overwriting
-- [ ] implement better non-redundancy check between bullet points
-- [ ] figure out a better way of handling rewrites + few-shot prompting (THERE IS ONE BULLET THAT REFUSES TO REWRITE FOR SOME REASON)
+- [x] implement better non-redundancy check between bullet points
+- [x] figure out a better way of handling rewrites + few-shot prompting (THERE IS ONE BULLET THAT REFUSES TO REWRITE FOR SOME REASON)
 
 #### **3. integrate pdfLatex compiler**
 

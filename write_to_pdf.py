@@ -45,24 +45,24 @@ Tampa, Florida
 anhkhang.le0910@gmail.com
 346-252-9698
 
-Dear CrowdStrike University Program Hiring Team,
+Dear [Company Name] Hiring Team,
 
-I am thrilled to apply for the Frontend Engineer Intern role at CrowdStrike, where I can leverage my passion for building user-centered interfaces and tackling complex problems with innovative solutions. As a computer science student with a strong foundation in JavaScript and web development, I am confident that my skills align perfectly with your team's needs.
+I am excited to apply for the Software Engineering Intern position at Dyno Therapeutics. As an aspiring software engineer with a strong foundation in AI and machine learning, I am drawn to Dyno’s mission to transform gene therapy through cutting-edge technologies. Your work at the intersection of AI and gene delivery is a perfect match for both my technical interests and my desire to work on projects that have a tangible, life-changing impact.
 
-Throughout my academic journey, I have been driven by curiosity and a desire to push the boundaries of what is possible on the web platform. My recent internship at Kyanon Digital taught me the importance of diving deep into complex problems and the power of innovative thinking to unlock better solutions. I successfully improved an existing AI solution by over 20%, demonstrating my ability to tackle meaningful challenges and deliver results-driven solutions.
+Throughout my journey in computer science, I have been driven by curiosity and a desire to take on meaningful challenges. My recent internship at Kyanon Digital was a turning point, where I got to push the boundaries of AI to solve real-world problems, like improving customer profiling with representation learning. The days and nights were worth it in the end, as I have managed to improve on the existing solution of the company by over 20%! This experience taught me the importance of diving deep into complex problems and the power of innovative thinking to unlock better solutions. 
 
-Beyond my internship, I have been actively involved in a research group at the RANCS Lab, where I am contributing to the development of an autonomous vehicle project. While working on this complex problem, I have learned the value of collaboration and teamwork in overcoming technical hurdles. This experience has solidified my passion for building strong relationships with colleagues and delivering high-quality software that meets user needs.
+Beyond my internship, I am involved in a research group at the RANCS Lab, where I am helping to develop an autonomous vehicle. While the technical side of this project has been fascinating-working with everything from sensor fusion to C++ libraries-what excites me most is the collaboration aspect. Because this is such a huge project, I have gotten to work with so many brilliant mechanical engineers that I wouldn't have the chance to interact with otherwise. It has been a lesson in how different skill sets and perspectives come together to solve problems that no one person could tackle alone. This emphasis on teamwork is one of the reasons I am drawn to [Company Name], as I admire the collaborative, cross-functional nature of your projects.
 
-As a self-proclaimed coding enthusiast, I enjoy tackling personal projects and contributing to open-source initiatives. I am particularly drawn to Linux and open-source software due to their emphasis on collaboration, transparency, and continuous learning. My experience working on side projects for local businesses has not only deepened my technical skills but also given me a deeper appreciation for the importance of user-centered design.
+On a personal level, I have always been a bit obsessed with coding challenges. What started as a goal to solve 100 problems quickly snowballed into solving over 400, and I am currently on a 115-day streak. I think this reflects how much I enjoy pushing myself to get better and solve problems efficiently. But beyond the numbers, what I have learned is how to approach problems systematically-breaking them down into manageable parts and looking for creative, optimized solutions.
 
-I am impressed by CrowdStrike's commitment to innovation and making the digital world a safer place to live and work. As someone who is passionate about solving problems and learning, I am excited about the opportunity to join your team and contribute to the development of cutting-edge cybersecurity solutions. Your emphasis on collaboration, flexibility, and personal growth aligns perfectly with my values and approach to software development.
+In addition to my experience, I am deeply passionate about building new technologies. Recently, I’ve been exploring the use of large language models (LLMs) and developing applications that leverage these models to solve specific problems. I am excited about the opportunity to bring this knowledge to Dyno, particularly in the context of optimizing gene delivery systems. I am confident that my skills in Python, AI frameworks like HuggingFace, and my experience in full-stack development will allow me to contribute meaningfully to your team and actually make an impact on the world.
 
-In addition to my technical skills and passion for coding, I possess excellent communication and problem-solving skills, which have been essential in my academic and professional journey. I am confident that my unique blend of technical expertise, enthusiasm for learning, and collaborative spirit make me an ideal candidate for this role.
-
-I would be thrilled to discuss how my skills and experience align with CrowdStrike's mission and values. Thank you for considering my application!
+At the heart of all my work is a love for solving problems, learning, and contributing to the bigger picture. I am excited about the possibility of bringing my experience and enthusiasm to your team, and I would love the chance to discuss how I can contribute to the innovative work happening at [Company Name].
 
 Warm regards,
 Khang Le
 """
+
+text = text.replace("[Company Name]", "Dyno Therapeutics")
 
 write_cv(text)
